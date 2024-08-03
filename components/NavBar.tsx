@@ -29,7 +29,7 @@ function Logo() {
 
 function Socials() {
     return (
-        <div style={{width: 182, left: 1235, top: 24, position: 'absolute', justifyContent: 'flex-end', alignItems: 'center', gap: 21, display: 'inline-flex'}}>
+        <div style={{width: 182, right: 56, top: 24, position: 'absolute', justifyContent: 'flex-end', alignItems: 'center', gap: 21, display: 'inline-flex'}}>
             <a href={links.discord} id={styles.link}>
                 <img style={{width: 45, height: 35}} src={`${prefix}/socials/discord.png`} alt='Discord guild'></img>
             </a>
