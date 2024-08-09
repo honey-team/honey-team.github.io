@@ -16,6 +16,7 @@ const Home: NextPage = () => {
         <title>HoneyTeam 🍯</title>
         <meta name="description" content={description} />
         <meta property="og:image" content={Route('/opengraph-image.png')}/>
+        <meta property="og:type" content="object"></meta>
         <link rel="icon" href={Route('/favicon.ico')} />
       </Head>
       <NavBar />
