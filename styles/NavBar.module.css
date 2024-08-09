@@ -5,6 +5,12 @@
     opacity: 0.85;
 }
 
+.navbar {
+    position: relative;
+    background: linear-gradient(135deg, #FF8E3F 0%, #FF450B 100%);
+    box-shadow: 0px 0px 10px 6px rgba(255, 106, 37, 0.4);
+}
+
 .logo_font {
     font-family: "Fredoka", sans-serif;
     font-size: 36px;
