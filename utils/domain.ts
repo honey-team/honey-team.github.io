@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 
+const default_domain = 'https://honey-team.ru';
 
 export default function getDomain(): string {
     const [currentDomain, setCurrentDomain] = useState('');
     useEffect(() => {
         setCurrentDomain(window.location.origin);
     }, [])
+
+    if (currentDomain === '') {
+        return default_domain;
+    }
     return currentDomain;
 }
 
