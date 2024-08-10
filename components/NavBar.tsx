@@ -1,6 +1,5 @@
 import styles from "../styles/NavBar.module.css";
 
-import prefix  from "../utils/prefix";
 import { Route } from "../utils/domain";
 
 function Logo() {
