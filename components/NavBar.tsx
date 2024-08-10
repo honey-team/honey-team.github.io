@@ -5,8 +5,8 @@ import { Route } from "../utils/domain";
 function Logo() {
     return (
         <a href={Route('/')} id={styles.link}>
-            <img style={{width: 41.72, height: 46, left: 56, top: 18, position: 'absolute'}} src={Route('/logo.png')} alt='HoneyTeam logo'></img>
-            <div style={{left: 119, top: 20, position: 'absolute', textAlign: 'center', wordWrap: 'break-word'}} className={styles.logo_font}>HoneyTeam</div>
+            <img style={{width: 57, height: 57, left: 17, top: 14, position: 'absolute'}} src={Route('/logo.svg')} />
+            <div style={{left: 96, top: 20, position: 'absolute', textAlign: 'center'}} className={styles.logo_font}>HoneyTeam</div>
         </a>
     )
 }
@@ -33,7 +33,7 @@ function Socials() {
 
 function Tabs() {
     return (
-        <div style={{left: 403, top: 18, position: 'absolute', justifyContent: 'flex-start', alignItems: 'center', gap: 74, display: 'inline-flex'}}>
+        <div style={{left: 353, top: 18, position: 'absolute', justifyContent: 'flex-start', alignItems: 'center', gap: 74, display: 'inline-flex'}}>
             <a href={Route('/projects')} className={styles.tabs_font} id={styles.link}>Проекты</a>
             <a href={Route('/members')} className={styles.tabs_font} id={styles.link}>Участники</a>
         </div>
@@ -44,8 +44,8 @@ export default function NavBar() {
     return (
         <div className={styles.navbar} style={{height: 84}}>
             <Logo />
-            <Socials />
             <Tabs />
+            <Socials />
         </div>
     )
 }

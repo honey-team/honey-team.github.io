@@ -16,6 +16,8 @@
     font-size: 36px;
     font-weight: 600;
     color: white;
+    word-wrap: break-word;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.45);
 }
 
 .tabs_font {
