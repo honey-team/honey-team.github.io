@@ -19,7 +19,11 @@ export function getSubDomain(sub_domain_name: string): string {
     return `${certificate}://${sub_domain_name}.${domain}`;
 }
 
-export function Route(route: string, sub_domain: string | null = null): string {
+export function Route(route: string | null, sub_domain: string | null = null): string {
+    if (route === null) {
+        route = '/';
+    }
+    
     if (sub_domain === null) {
         return getDomain() + route;
     }
