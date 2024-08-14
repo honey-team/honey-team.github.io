@@ -8,7 +8,7 @@ import HTHead, {Pages} from "../components/HTHead";
 const Home: NextPage = () => {
   return (
     <div>
-      <HTHead page={Pages.projects} />
+      <HTHead page={Pages.index} />
       <div style={{width: 1280, height: 3140, background: '#313131', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 49, display: 'inline-flex'}}>
         <div style={{alignSelf: 'stretch', height: 2902, paddingLeft: 20, paddingRight: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', gap: 40, display: 'inline-flex'}}>
       <div style={{width: 1280, height: 720, position: 'relative', background: '#373737'}}>
