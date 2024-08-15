@@ -81,13 +81,13 @@ const Home: NextPage = () => {
     <div style={{width: 1240, height: 3, position: 'relative', borderRadius: 3, border: '2px rgba(255, 255, 255, 0.09) dotted'}} />
     <div style={{height: 404, paddingTop: 30, paddingBottom: 30, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 40, display: 'flex'}}>
       <div style={{width: 1280, paddingLeft: 10, paddingRight: 10, justifyContent: 'center', alignItems: 'center', gap: 30, display: 'inline-flex'}}>
-        <img style={{width: 130, height: 128}} src="https://via.placeholder.com/130x128" />
-        <img style={{width: 130, height: 128}} src="https://via.placeholder.com/130x128" />
-        <img style={{width: 130, height: 128}} src="https://via.placeholder.com/130x128" />
-        <img style={{width: 130, height: 128}} src="https://via.placeholder.com/130x128" />
-        <img style={{width: 130, height: 128}} src="https://via.placeholder.com/130x128" />
-        <img style={{width: 130, height: 128}} src="https://via.placeholder.com/130x128" />
-        <img style={{width: 130, height: 128}} src="https://via.placeholder.com/130x128" />
+        <img style={{width: 130, height: 128}} src="/public/languages/Python.png" />
+        <img style={{width: 130, height: 128}} src="/public/languages/HTML.png" />
+        <img style={{width: 130, height: 128}} src="/public/languages/CSS.png" />
+        <img style={{width: 130, height: 128}} src="/public/languages/JS.png" />
+        <img style={{width: 130, height: 128}} src="/public/languages/SQL.png" />
+        <img style={{width: 130, height: 128}} src="/public/languages/C.png" />
+        <img style={{width: 130, height: 128}} src="/public/languages/CPP.png" />
       </div>
       <div style={{alignSelf: 'stretch', textAlign: 'center', color: '#FF8E3F', fontSize: 96, fontFamily: 'Nunito', fontWeight: '900', wordWrap: 'break-word'}}>Много участников</div>
       <div style={{width: 634, textAlign: 'center', color: '#ECECEC', fontSize: 20, fontFamily: 'Nunito', fontWeight: '500', wordWrap: 'break-word'}}>В нашей команде состоит уже более 15 человек.<br/>Мы все специализируемся в разных языках программирования, что позволяет создавать почти любые проекты.</div>
