@@ -1,0 +1,36 @@
+.logo {
+	fill: red;
+}
+
+.logo__wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.logo__text {
+	font-family: fredoka-one, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.logo__text_white {
+	font-size: 24px;
+	color: var(--text-color-white);
+}
+
+.logo__text_gray {
+	font-size: 32px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.logo_white {
+	width: 25px;
+	height: 25px;
+	fill: var(--text-color-white);
+	margin-right: 10px;
+}
+
+.logo_gray {
+	width: 41px;
+	height: 41px;
+	fill: rgba(255, 255, 255, 0.5);
+	margin-right: 20px;
+}

@@ -1,0 +1,13 @@
+
+.list-section {
+	padding: 60px 0;
+}
+
+.content {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 350px);
+	grid-gap: 15px;
+	justify-content: center;
+	justify-items: center;
+}

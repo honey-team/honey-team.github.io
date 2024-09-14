@@ -1,0 +1,10 @@
+.decorative-line {
+	width: 98vw;
+	display: block;
+	border-top: 2px dashed rgba(255, 255, 255, 0.09);
+	color: transparent;
+	height: 0;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}

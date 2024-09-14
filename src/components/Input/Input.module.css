@@ -1,0 +1,18 @@
+.input {
+	max-width: 470px;
+	width: 100%;
+	min-width: 200px;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.2);
+	border: none;
+	border-radius: 10px;
+	padding: 10px 15px;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 20px;
+	font-family: Nunito, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-weight: 500;
+}
+
+.input:focus {
+	outline:none;
+}

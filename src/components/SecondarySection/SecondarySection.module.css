@@ -1,0 +1,33 @@
+.secondary-section {
+	padding: 125px 0 70px 0;
+	position: relative;
+	width: 100%;
+	background-color: var(--dark-gray-color);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.secondary-section__dash {
+	top: 40px;
+}
+
+.image {
+	margin-bottom: 40px;
+}
+
+.text {
+	font-size: 20px;
+	font-weight: 500;
+	max-width: 626px;
+	text-align: center;
+	transform: translateY(-30px);
+	line-height: normal;
+}
+
+.secondary-title {
+	transform: translateY(-20px);
+}

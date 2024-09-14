@@ -1,0 +1,38 @@
+.title-section {
+	padding: 100px 0 90px 0;
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--light-gray-color);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.dash {
+	bottom: 20px;
+}
+
+.form {
+	width: 525px;
+	display: flex;
+	gap: 15px;
+}
+
+.button {
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.2) url("/public/icons/filter.svg") center no-repeat;
+}
+
+.title {
+	transform: translateY(-30px);
+}

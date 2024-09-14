@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "fredoka-one";
+  src: local('FredokaOne'),
+  url('../public/fonts/FredokaOne-Regular.woff2') format('woff2'),
+  url('../public/fonts/FredokaOne-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local('Nunito'),
+  url('../public/fonts/Nunito-Regular.woff2') format('woff2'),
+  url('../public/fonts/Nunito-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local('Nunito'),
+  url('../public/fonts/Nunito-Medium.woff2') format('woff2'),
+  url('../public/fonts/Nunito-Medium.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local('Nunito'),
+  url('../public/fonts/Nunito-SemiBold.woff2') format('woff2'),
+  url('../public/fonts/Nunito-SemiBold.woff') format('woff');
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local('Nunito'),
+  url('../public/fonts/Nunito-Bold.woff2') format('woff2'),
+  url('../public/fonts/Nunito-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local('Nunito'),
+  url('../public/fonts/Nunito-ExtraBold.woff2') format('woff2'),
+  url('../public/fonts/Nunito-ExtraBold.woff') format('woff');
+  font-style: normal;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: local('Nunito'),
+  url('../public/fonts/Nunito-Black.woff2') format('woff2'),
+  url('../public/fonts/Nunito-Black.woff') format('woff');
+  font-style: normal;
+  font-weight: 900;
+}
+
+
+
+:root {
+  --light-gray-color: #373737;
+  --dark-gray-color: #313131;
+  --black-gray-color: #262626;
+  --main-gradient: linear-gradient(#FF8E3F, #FF450B);
+  --secondary-gradient: linear-gradient(#FF8E3F, #FF5A13);
+  --text-color-white: #ffffff;
+  --text-color-light-gray: #ECECEC;
+
+
+  font-family: Nunito, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+
+  color: rgba(255, 255, 255);
+  background-color: var(--dark-gray-color);
+
+  
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+	padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  min-width: 320px;
+  max-width: 1280px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.content {
+  flex: 1 1 100%;
+  width: 100%;
+}
+
