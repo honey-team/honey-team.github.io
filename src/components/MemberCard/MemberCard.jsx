@@ -1,10 +1,10 @@
-import styles from "./MemberCard.module.css";
-import Icons from "../Icons/Icons";
-import { Link } from "react-router-dom";
+import styles from "./MemberCard.module.css"
+import Icons from "../Icons/Icons"
+import { Link } from "react-router-dom"
 
 function MemberCard({ member }) {
 
-  let links = ["github", "cite", "telegram", "discord"];
+  let links = ["github", "cite", "telegram", "discord"]
 
   return (
     
@@ -31,7 +31,7 @@ function MemberCard({ member }) {
       </div>
     </div>
     
-  );
+  )
 }
 
-export default MemberCard;
+export default MemberCard

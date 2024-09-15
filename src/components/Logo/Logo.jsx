@@ -1,6 +1,6 @@
-import Icons from "../Icons/Icons";
-import styles from "./Logo.module.css";
-import cn from "classnames";
+import Icons from "../Icons/Icons"
+import styles from "./Logo.module.css"
+import cn from "classnames"
 
 function Logo({ color }) {
   return (
@@ -21,7 +21,7 @@ function Logo({ color }) {
         HoneyTeam
       </span>
     </div>
-  );
+  )
 }
 
-export default Logo;
+export default Logo

@@ -1,28 +1,30 @@
-import MemberCard from "../../components/MemberCard/MemberCard.jsx";
-import TitleSection from "../../components/TitleSection/TitleSection.jsx";
-import styles from "./MembersPage.module.css";
-import file from "../../data.json";
-import { useEffect, useState } from "react";
+import MemberCard from "../../components/MemberCard/MemberCard.jsx"
+import TitleSection from "../../components/TitleSection/TitleSection.jsx"
+import styles from "./MembersPage.module.css"
+import file from "../../data.json"
+import { useEffect, useState } from "react"
+import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
 
 function MemebersPage() {
-  const [members, setMembers] = useState([]);
-  const [error, setError] = useState(false);
+  const [members, setMembers] = useState([])
+  const [error, setError] = useState(false)
 
   const getMembers = () => {
     if(file.members){
-      setMembers(file.members);
-      setError(false);
+      setMembers(file.members)
+      setError(false)
     }
     else
-      setError(true);
+      setError(true)
   }
 
   useEffect(() => {
-    getMembers();
-  }, []);
+    getMembers()
+  }, [])
 
   return (
     <>
+        <HTHead page={Pages.members} />
         <TitleSection title="Участники" />
         <section className={styles["list-section"]}>
           <div className="wrapper">
@@ -39,14 +41,14 @@ function MemebersPage() {
             {!error && (
               <div className={styles["content"]}>
                 {members.map((member, index) => {
-                  return <MemberCard member={member} key={index} />;
+                  return <MemberCard member={member} key={index} />
                 })}
               </div>
             )}
           </div>
         </section>
     </>
-  );
+  )
 }
 
-export default MemebersPage;
+export default MemebersPage

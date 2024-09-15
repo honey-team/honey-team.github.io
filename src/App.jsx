@@ -1,10 +1,10 @@
 import MainPage from "./pages/MainPage/MainPage.jsx"
 import MemebersPage from "./pages/MembersPage/MembersPage.jsx"
-import MemberPage from "./pages/MemberPage/MemberPage.jsx";
+import MemberPage from "./pages/MemberPage/MemberPage.jsx"
 import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx"
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Layout } from "./layout/Layout.jsx";
-import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { Layout } from "./layout/Layout.jsx"
+import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx"
 
 const router = createBrowserRouter([
   {
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     ]
   },
 
-], { basename: "/honey-team-site/"});
+], { basename: "/honey-team-site/"})
 
 function App() {
 

@@ -1,6 +1,6 @@
-import Button from "../Button/Button";
-import DecorativeLine from "../DecorativeLine/DecorativeLine";
-import styles from "./FifthSection.module.css";
+import Button from "../Button/Button"
+import DecorativeLine from "../DecorativeLine/DecorativeLine"
+import styles from "./FifthSection.module.css"
 
 function FifthSection() {
   return (
@@ -13,7 +13,7 @@ function FifthSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default FifthSection;
+export default FifthSection

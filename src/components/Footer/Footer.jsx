@@ -1,6 +1,6 @@
-import Logo from "../Logo/Logo";
-import styles from "./Footer.module.css";
-import { Link } from "react-router-dom";
+import Logo from "../Logo/Logo"
+import styles from "./Footer.module.css"
+import { Link } from "react-router-dom"
 
 function Footer() {
 return(<footer className={styles["footer"]}>
@@ -33,4 +33,4 @@ return(<footer className={styles["footer"]}>
 </footer>)
 }
 
-export default Footer;
+export default Footer

@@ -1,8 +1,8 @@
-import styles from "./TitleSection.module.css";
-import Title from "../Title/Title";
-import cn from "classnames";
-import Input from "../Input/Input";
-import DecorativeLine from "../DecorativeLine/DecorativeLine";
+import styles from "./TitleSection.module.css"
+import Title from "../Title/Title"
+import cn from "classnames"
+import Input from "../Input/Input"
+import DecorativeLine from "../DecorativeLine/DecorativeLine"
 
 function TitleSection({ title }) {
   return (
@@ -16,7 +16,7 @@ function TitleSection({ title }) {
         <DecorativeLine className={styles["dash"]} />
       </div>
     </section>
-  );
+  )
 }
 
-export default TitleSection;
+export default TitleSection

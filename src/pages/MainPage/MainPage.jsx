@@ -3,17 +3,19 @@ import ThirdSection from "../../components/ThirdSection/ThirdSection.jsx"
 import MainSection from "../../components/MainSection/MainSection.jsx"
 import FifthSection from "../../components/FifthSection/FifthSection.jsx"
 import FourthSection from "../../components/FourthSection/FourthSection.jsx"
-import { useEffect } from "react"
+import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
 
 function MainPage() {
-  
-  return (<>
-  <MainSection />
-  <SecondarySection />
-  <ThirdSection />
-  <FourthSection />
-  <FifthSection />
-  </>);
+  return (
+  <>
+    <HTHead page={Pages.index} />
+    <MainSection />
+    <SecondarySection />
+    <ThirdSection />
+    <FourthSection />
+    <FifthSection />
+  </>
+  )
 }
 
-export default MainPage;
+export default MainPage

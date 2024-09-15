@@ -1,6 +1,6 @@
-import styles from "./ErrorPage.module.css";
-import Button from "../../components/Button/Button";
-import { Link } from "react-router-dom";
+import styles from "./ErrorPage.module.css"
+import Button from "../../components/Button/Button"
+import { Link } from "react-router-dom"
 
 function ErrorPage() {
   return (
@@ -9,7 +9,7 @@ function ErrorPage() {
       <p>Страница не найдена</p>
       <Link to="/"><Button modificator="flat-orange" style={{width: "400px"}}>На главную</Button></Link>
     </div>
-  );
+  )
 }
 
-export default ErrorPage;
+export default ErrorPage

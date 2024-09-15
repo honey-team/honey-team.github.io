@@ -1,6 +1,6 @@
-import Button from "../Button/Button";
-import styles from "./MainSection.module.css";
-import { Link } from "react-router-dom";
+import Button from "../Button/Button"
+import styles from "./MainSection.module.css"
+import { Link } from "react-router-dom"
 
 function MainSection() {
 return(<section className={styles["main-section"]}>
@@ -17,4 +17,4 @@ return(<section className={styles["main-section"]}>
 </section>)
 }
 
-export default MainSection;
+export default MainSection

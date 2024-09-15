@@ -1,5 +1,5 @@
-import styles from "./Button.module.css";
-import cn from "classnames";
+import styles from "./Button.module.css"
+import cn from "classnames"
 
 function Button({children, modificator, link, ...props}) {
 	return(<div className={cn(styles["button"], {[styles["orange"]]: modificator === "main", [styles["white"]]: modificator === "white", [styles["flat-orange"]]: modificator === "flat-orange"})} {...props}>
@@ -7,4 +7,4 @@ function Button({children, modificator, link, ...props}) {
 		</div>)
 }
 
-export default Button;
+export default Button

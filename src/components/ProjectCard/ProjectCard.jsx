@@ -1,7 +1,7 @@
-import Button from "../Button/Button";
-import styles from "./ProjectCard.module.css";
-import { Link } from "react-router-dom";
-import cn from "classnames";
+import Button from "../Button/Button"
+import styles from "./ProjectCard.module.css"
+import { Link } from "react-router-dom"
+import cn from "classnames"
 
 function ProjectCard({ project }, modificator) {
 
@@ -19,4 +19,4 @@ function ProjectCard({ project }, modificator) {
 	</div>
 }
 
-export default ProjectCard;
+export default ProjectCard

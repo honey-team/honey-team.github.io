@@ -1,7 +1,7 @@
-import Button from "../Button/Button";
-import DecorativeLine from "../DecorativeLine/DecorativeLine";
-import Title from "../Title/Title";
-import styles from "./SecondarySection.module.css";
+import Button from "../Button/Button"
+import DecorativeLine from "../DecorativeLine/DecorativeLine"
+import Title from "../Title/Title"
+import styles from "./SecondarySection.module.css"
 
 function SecondarySection() {
 return(<section className={styles["secondary-section"]}>
@@ -19,4 +19,4 @@ return(<section className={styles["secondary-section"]}>
 </section>)
 }
 
-export default SecondarySection;
+export default SecondarySection

@@ -1,6 +1,6 @@
-import DecorativeLine from "../DecorativeLine/DecorativeLine";
-import Title from "../Title/Title";
-import styles from "./ThirdSection.module.css";
+import DecorativeLine from "../DecorativeLine/DecorativeLine"
+import Title from "../Title/Title"
+import styles from "./ThirdSection.module.css"
 
 function ThirdSection() {
   return (
@@ -15,7 +15,7 @@ function ThirdSection() {
 		</div>
       </div>
     </section>
-  );
+  )
 }
 
-export default ThirdSection;
+export default ThirdSection

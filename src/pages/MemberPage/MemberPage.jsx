@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
-import file from "../../data.json";
-import { useParams } from "react-router-dom";
-import DecorativeLine from "../../components/DecorativeLine/DecorativeLine";
-import Icons from "../../components/Icons/Icons";
-import styles from "./MemberPage.module.css";
-import Title from "../../components/Title/Title";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import { useEffect, useState } from "react"
+import file from "../../data.json"
+import { useParams } from "react-router-dom"
+import DecorativeLine from "../../components/DecorativeLine/DecorativeLine"
+import Icons from "../../components/Icons/Icons"
+import styles from "./MemberPage.module.css"
+import Title from "../../components/Title/Title"
+import ProjectCard from "../../components/ProjectCard/ProjectCard"
+import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
 
 function MemberPage() {
-  const [members, setMembers] = useState([]);
-  const [error, setError] = useState(true);
-  const [currentMember, setCurrentMember] = useState();
-  const params = useParams();
+  const [members, setMembers] = useState([])
+  const [error, setError] = useState(true)
+  const [currentMember, setCurrentMember] = useState()
+  const params = useParams()
 
-  let links = ["github", "cite", "telegram", "discord"];
+  let links = ["github", "cite", "telegram", "discord"]
   let project = {
 	id: 1,
 	title: "mksc",
@@ -23,27 +24,28 @@ function MemberPage() {
 
   const getMembers = () => {
     if (file.members) {
-      setMembers(file.members);
-    } else setError(true);
-  };
+      setMembers(file.members)
+    } else setError(true)
+  }
 
   const getCurrentMember = () => {
-    setCurrentMember(members[params.id - 1]);
-    if (currentMember) setError(false);
-    else setError(true);
-  };
+    setCurrentMember(members[params.id - 1])
+    if (currentMember) setError(false)
+    else setError(true)
+  }
 
   useEffect(() => {
-    getMembers();
-  }, []);
+    getMembers()
+  }, [])
 
   useEffect(() => {
-    getCurrentMember();
-    console.log(currentMember);
-  }, [members, currentMember]);
+    getCurrentMember()
+    console.log(currentMember)
+  }, [members, currentMember])
 
   return (
     <>
+      <HTHead page={Pages.index} />
       {error && (
         <div className="wrapper">
           <p>Участник не найден</p>
@@ -65,9 +67,9 @@ function MemberPage() {
             </h1>
             <div className={styles["info-section__stats"]}>
               <p className={styles["bio"]}>{currentMember?.bio}</p>
-              <span className={styles["dot"]}>&bull;</span>
+              <span className={styles["dot"]}>&bull</span>
               {currentMember.langs.map((lang, index) => {
-                return <Icons name={lang} key={index} />;
+                return <Icons name={lang} key={index} />
               })}
             </div>
 			<div className={styles["contacts"]}>
@@ -96,7 +98,7 @@ function MemberPage() {
         </>
       )}
     </>
-  );
+  )
 }
 
-export default MemberPage;
+export default MemberPage

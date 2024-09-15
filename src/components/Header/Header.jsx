@@ -1,7 +1,7 @@
-import Icons from "../Icons/Icons";
-import Logo from "../Logo/Logo";
-import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import Icons from "../Icons/Icons"
+import Logo from "../Logo/Logo"
+import styles from "./Header.module.css"
+import { Link } from "react-router-dom"
 
 function Header() {
   return (
@@ -22,7 +22,7 @@ function Header() {
 		  </div>
         </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
