@@ -34,15 +34,8 @@ const router = createBrowserRouter([
     ]
   },
 
-], { basename: "/honey-team-site/"})
+])
 
-function App() {
-
-  return (
-    <>
-    <RouterProvider router={router} />
-    </>
-  )
+export default function App() {
+  return <RouterProvider router={router} />
 }
-
-export default App
