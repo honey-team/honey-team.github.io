@@ -3,52 +3,52 @@
     {
       "id": 1,
       "gh": "bleudev",
-      "banner": "/honey-team-site/images/avatars/avatar1.png",
+      "banner": "/images/avatars/avatar1.png",
       "bio": "здесь типо био в одну строку",
       "langs": ["py", "js", "lua", "py", "js", "lua"],
       "projects": ["ufpy", "DuplicateBot"],
-      "links": ["https://github.com/", "http://honey-team.com/", "http://tg.me/", "http://discord.com/"]
+      "links": ["https://github.com/", "https://honey-team.ru/", "http://tg.me/", "http://discord.com/"]
     },
     {
       "id": 2,
       "gh": "bleudev2",
-      "banner": "/honey-team-site/images/avatars/avatar2.png",
+      "banner": "/images/avatars/avatar2.png",
       "langs": ["py", "js", "lua"],
       "projects": ["ufpy", "DuplicateBot"],
-      "links": ["https://github.com/", "honey-team.com", "", ""]
+      "links": ["https://github.com/", "https://honey-team.ru/", "", ""]
     },
     {
       "id": 3,
       "gh": "bleudev3",
-      "banner": "/honey-team-site/images/avatars/avatar2.png",
+      "banner": "/images/avatars/avatar2.png",
       "langs": ["py", "js"],
       "projects": ["ufpy", "DuplicateBot"],
-      "links": ["https://github.com/", "honey-team.com", "", ""]
+      "links": ["https://github.com/", "https://honey-team.ru/", "", ""]
     }
   ],
   "projects": [
     {
       "id": 1,
       "title": "proj1",
-      "image": "/honey-team-site/images/projects/test-img.jpg",
+      "image": "/images/projects/test-img.jpg",
       "description": "A program to track your daily keypresses."
     },
     {
       "id": 2,
       "title": "proj2",
-      "image": "/honey-team-site/images/projects/test-img.png",
+      "image": "/images/projects/test-img.png",
       "description": "A program to track your daily keypresses."
     },
     {
       "id": 3,
       "title": "proj3",
-      "image": "/honey-team-site/images/projects/test-img.png",
+      "image": "/images/projects/test-img.png",
       "description": "A program to track your daily keypresses."
     },
     {
       "id": 4,
       "title": "proj4",
-      "image": "/honey-team-site/images/projects/test-img.jpg",
+      "image": "/images/projects/test-img.jpg",
       "description": "A program to track your daily keypresses."
     }
   ]

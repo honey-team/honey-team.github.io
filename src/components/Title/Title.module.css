@@ -3,8 +3,9 @@
 	letter-spacing: -2.88px;
 	background: linear-gradient(80deg, #FF8E3F, #FF5A13);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #ff8e3f;
-  font-weight: 900;
+  font-weight: 1200;
   text-shadow: 0px 4px 4px rgba(255, 80, 0, 0.4);
 }

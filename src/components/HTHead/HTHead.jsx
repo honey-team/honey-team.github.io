@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet"
+
 import Route from "../../utils/links"
 
 import htconfig from "../../../htconfig.json"
@@ -55,7 +57,7 @@ export default function HTHead({name, ...props}) {
     }
 
     return (
-        <head>
+        <Helmet>
             <title>{page_title}</title>
             <link rel="icon" href={favicon} />
             <meta name="description" content={description}/>
@@ -72,6 +74,6 @@ export default function HTHead({name, ...props}) {
             <meta name="twitter:title" content={page_title}/>
             <meta name="twitter:description" content={description}/>
             <meta name="twitter:image" content={og_image}/>
-        </head>
+        </Helmet>
     )
 }

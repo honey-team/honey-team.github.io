@@ -15,9 +15,9 @@ return(<footer className={styles["footer"]}>
 		<ul className={styles["navigation"]}>
 			<li>Страницы</li>
 			<li><Link to="/">Главная</Link></li>
-			<li><a href="#!">Проекты</a></li>
+			<li><Link to="/projects">Проекты</Link></li>
 			<li><Link to="/members">Участники</Link></li>
-			<li><a href="#!">Блог</a></li>
+			<li><Link to="/blog">Блог</Link></li>
 		</ul>
 		<ul className={styles["navigation"]}>
 			<li>Команда</li>

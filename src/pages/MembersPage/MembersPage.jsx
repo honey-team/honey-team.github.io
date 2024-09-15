@@ -5,7 +5,7 @@ import file from "../../data.json"
 import { useEffect, useState } from "react"
 import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
 
-function MemebersPage() {
+function MembersPage() {
   const [members, setMembers] = useState([])
   const [error, setError] = useState(false)
 
@@ -51,4 +51,4 @@ function MemebersPage() {
   )
 }
 
-export default MemebersPage
+export default MembersPage
