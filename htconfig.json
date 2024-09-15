@@ -18,5 +18,31 @@
         "index": "/socials/opengraph.png",
         "members": null,
         "projects": null
-    }
+    },
+    "members": [
+        {
+            "gh": "bleudev",
+            "bio": "Синий",
+            "socials": {
+                "tg": "bleuuu1",
+                "ds": "907966263270207519"
+            },
+            "projects": [
+                "DuplicateBot",
+                "ufpy"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "gh": "ufpy",
+            "image": "/images/projects/test-img.jpg",
+            "description": "A program to track your daily keypresses."
+        },
+        {
+            "gh": "DuplicateBot",
+            "image": "/images/projects/test-img.jpg",
+            "description": "Bot for duplicate messages from telegram to discord."
+        }
+    ]
 }

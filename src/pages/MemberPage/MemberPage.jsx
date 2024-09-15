@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import file from "../../data.json"
 import { useParams } from "react-router-dom"
 import DecorativeLine from "../../components/DecorativeLine/DecorativeLine"
 import Icons from "../../components/Icons/Icons"
@@ -7,6 +6,8 @@ import styles from "./MemberPage.module.css"
 import Title from "../../components/Title/Title"
 import ProjectCard from "../../components/ProjectCard/ProjectCard"
 import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
+import config from "../../../htconfig.json"
+import { getLinks } from "../../components/MemberCard/MemberCard.jsx"
 
 function MemberPage() {
   const [members, setMembers] = useState([])
@@ -16,20 +17,25 @@ function MemberPage() {
 
   let links = ["github", "cite", "telegram", "discord"]
   let project = {
-	id: 1,
-	title: "mksc",
+	gh: "mksc",
 	description: "A program to track your daily keypresses.",
 	image: "/images/projects/test-img.jpg"
   }
 
   const getMembers = () => {
-    if (file.members) {
-      setMembers(file.members)
+    if (config.members) {
+      setMembers(config.members)
     } else setError(true)
   }
 
   const getCurrentMember = () => {
-    setCurrentMember(members[params.id - 1])
+    for (var value in members) {
+      if (value.gh === params.id) {
+        setCurrentMember(value)
+        break
+      }
+    }
+
     if (currentMember) setError(false)
     else setError(true)
   }
@@ -43,6 +49,7 @@ function MemberPage() {
     console.log(currentMember)
   }, [members, currentMember])
 
+  console.log(params.id)
   return (
     <>
       <HTHead page={Pages.index} />
@@ -56,9 +63,8 @@ function MemberPage() {
           <section className={styles["head-section"]}>
             <div className={styles["avatar-wrapper"]}>
               <img
-                src={currentMember.banner}
-                className={styles["avatar"]}
-              ></img>
+                src={`https://avatars.githubusercontent.com/${currentMember.gh}`}
+                className={styles["avatar"]} />
             </div>
           </section>
           <section className={styles["info-section"]}>
@@ -72,16 +78,9 @@ function MemberPage() {
                 return <Icons name={lang} key={index} />
               })}
             </div>
-			<div className={styles["contacts"]}>
-			{
-          currentMember.links.map((item, index) => {
-            return <a href={item} target="_blank" className={styles["contact-btn"]} key={index}>
-              <Icons name={links[index]} />
-            </a>
-          })
-        }
-			</div>
-
+            <div className={styles["contacts"]}>
+            {getLinks(currentMember.socials)}
+            </div>
             <DecorativeLine className={styles["dash"]} />
           </section>
 		  <section className={styles["projects-section"]}>
