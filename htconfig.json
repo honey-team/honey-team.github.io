@@ -22,7 +22,9 @@
     "members": [
         {
             "gh": "bleudev",
+            "banner": "#0000ff",
             "bio": "Синий",
+            "langs": ["py", "js"],
             "socials": {
                 "tg": "bleuuu1",
                 "ds": "907966263270207519"
@@ -31,6 +33,27 @@
                 "DuplicateBot",
                 "ufpy"
             ]
+        },
+        {
+            "gh": "moontr3",
+            "bio": "Японец",
+            "langs": ["py"],
+            "socials": {
+                "tg": "moontr3",
+                "ds": "698457845301248010",
+                "custom": "https://moontr3.ru"
+            },
+            "projects": []
+        },
+        {
+            "gh": "mbutsk",
+            "bio": "Мбуцк",
+            "langs": ["py"],
+            "socials": {
+                "tg": "HomyakHomyak",
+                "ds": "558214919405830151",
+                "custom": "https://mbutsk.xyz"
+            }
         }
     ],
     "projects": [

@@ -3,11 +3,13 @@ import Icons from "../Icons/Icons"
 import { Link } from "react-router-dom"
 
 export function getLinks(member_links) {
-  var r = []
+  let r = []
+  let i = 0
+
   for(var key in member_links) {
     var l
 
-    switch (member_links[key]) {
+    switch (key) {
       case 'ds':
         l = `https://discordapp.com/users/${member_links[key]}`
         break
@@ -20,10 +22,11 @@ export function getLinks(member_links) {
     }
 
     r.push(
-      <a href={l} target="_blank" className={styles["contact-btn"]}>
+      <a href={l} target="_blank" className={styles["contact-btn"]} key={i}>
         <Icons name={key} />
       </a>
     )
+    i += 1
   }
 
   console.log(r)
@@ -32,18 +35,17 @@ export function getLinks(member_links) {
 }
 
 function MemberCard({ member }) {
-
-  let links = ["github", "cite", "telegram", "discord"]
-
   return (
-    
     <div className={styles["card"]}>
-      <div className={styles["image"]}>
-        <img src={member.banner}></img>
-      </div>
       <Link to={`/members/${member.gh}`}>
-	  	<p className={styles["title"]}>{member.gh}</p>
-	  </Link>
+        <img
+          className={styles["circular--square"]}
+          src={`https://avatars.githubusercontent.com/${member.gh}`}
+        />
+      </Link>
+      <Link to={`/members/${member.gh}`}>
+	  	  <p className={styles["title"]}>{member.gh}</p>
+	    </Link>
       <div className={styles["skills"]}>
         {
           member.langs.map((item, index) => {

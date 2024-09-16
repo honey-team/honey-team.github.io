@@ -15,13 +15,6 @@ function MemberPage() {
   const [currentMember, setCurrentMember] = useState()
   const params = useParams()
 
-  let links = ["github", "cite", "telegram", "discord"]
-  let project = {
-	gh: "mksc",
-	description: "A program to track your daily keypresses.",
-	image: "/images/projects/test-img.jpg"
-  }
-
   const getMembers = () => {
     if (config.members) {
       setMembers(config.members)
@@ -30,6 +23,7 @@ function MemberPage() {
 
   const getCurrentMember = () => {
     for (var value in members) {
+      value = members[value]
       if (value.gh === params.id) {
         setCurrentMember(value)
         break
@@ -46,10 +40,38 @@ function MemberPage() {
 
   useEffect(() => {
     getCurrentMember()
-    console.log(currentMember)
   }, [members, currentMember])
 
-  console.log(params.id)
+  var memberProjects = []
+  var projects_error = true
+  if (currentMember.projects && config.projects) {
+    for (var p in config.projects) {
+      console.log(p)
+      if (p.gh in currentMember.projects) {
+        memberProjects.push(<ProjectCard project={p}/>)
+        projects_error = false
+      }
+    }
+  }
+  console.log(memberProjects)
+
+
+  if (!error) {
+    var s = {backgroundColor: '#262626'}
+    if (currentMember.banner) {
+      if (currentMember.banner.startsWith('#')) {
+        s = {backgroundColor: currentMember.banner}
+      }
+      else {
+        s = {
+          backgroundImage: `url('${currentMember.banner}')`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'auto 300px'
+        }
+      }
+    }
+  }
+
   return (
     <>
       <HTHead page={Pages.index} />
@@ -60,11 +82,12 @@ function MemberPage() {
       )}
       {!error && (
         <>
-          <section className={styles["head-section"]}>
+          <section className={styles["head-section"]} style={s}>
             <div className={styles["avatar-wrapper"]}>
               <img
+                className={styles["avatar"]}
                 src={`https://avatars.githubusercontent.com/${currentMember.gh}`}
-                className={styles["avatar"]} />
+              />
             </div>
           </section>
           <section className={styles["info-section"]}>
@@ -73,7 +96,7 @@ function MemberPage() {
             </h1>
             <div className={styles["info-section__stats"]}>
               <p className={styles["bio"]}>{currentMember?.bio}</p>
-              <span className={styles["dot"]}>&bull</span>
+              <span className={styles["dot"]}>・</span>
               {currentMember.langs.map((lang, index) => {
                 return <Icons name={lang} key={index} />
               })}
@@ -86,12 +109,11 @@ function MemberPage() {
 		  <section className={styles["projects-section"]}>
 		  <div className="wrapper">
 			<Title className={styles["projects-section__title"]}>Проекты</Title>
-			<div className={styles["projects-wrapper"]}>
-				<ProjectCard project = {project}></ProjectCard>
-				<ProjectCard project = {project}></ProjectCard>
-				<ProjectCard project = {project}></ProjectCard>
-				<ProjectCard project = {project}></ProjectCard>
-			</div>
+			{!projects_error && (
+        <div className={styles["projects-wrapper"]}>
+				  {memberProjects}
+			  </div>
+      )}
 			</div>
 		  </section>
         </>
