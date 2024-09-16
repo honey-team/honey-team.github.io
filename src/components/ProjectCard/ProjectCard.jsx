@@ -4,11 +4,9 @@ import { Link } from "react-router-dom"
 import cn from "classnames"
 
 function ProjectCard({ project }, modificator) {
+	var ttle = project.gh
 	if (project.title) {
 		ttle = project.title
-	}
-	else {
-		ttle = project.gh
 	}
 
 	if (!project){
@@ -21,7 +19,9 @@ function ProjectCard({ project }, modificator) {
 		<div className={styles["project-card__info"]}>
 			<div className={styles["project-card__title"]}>{ttle}</div>
 			<div className={styles["project-card__description"]}>{project.description}</div>
-			<Button modificator={"flat-orange"}>GitHub</Button>
+			<div className={styles["project-card__button"]}>
+				<Button modificator={"flat-orange"}>GitHub</Button>
+			</div>
 		</div>
 	</div>
 }

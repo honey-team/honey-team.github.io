@@ -16,6 +16,9 @@ export function getLinks(member_links) {
       case 'tg':
         l = `https://t.me/${member_links[key]}`
         break
+      case 'gh':
+        l = `https://github.com/${member_links[key]}`
+        break
       default:
         l = member_links[key]
         break
@@ -29,12 +32,11 @@ export function getLinks(member_links) {
     i += 1
   }
 
-  console.log(r)
-
   return r
 }
 
 function MemberCard({ member }) {
+  member.socials.gh = member.gh
   return (
     <div className={styles["card"]}>
       <Link to={`/members/${member.gh}`}>

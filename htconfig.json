@@ -54,16 +54,26 @@
                 "ds": "558214919405830151",
                 "custom": "https://mbutsk.xyz"
             }
+        },
+        {
+            "gh": "TheHakerTech",
+            "bio": "Айхоп",
+            "langs": ["py"],
+            "socials": {
+                "tg": "hopTech"
+            }
         }
     ],
     "projects": [
         {
             "gh": "ufpy",
+            "title": "ufpy",
             "image": "/images/projects/test-img.jpg",
             "description": "A program to track your daily keypresses."
         },
         {
             "gh": "DuplicateBot",
+            "title": "DuplicateBot",
             "image": "/images/projects/test-img.jpg",
             "description": "Bot for duplicate messages from telegram to discord."
         }
