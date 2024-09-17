@@ -7,6 +7,7 @@ import Title from "../../components/Title/Title";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import HTHead, { Pages } from "../../components/HTHead/HTHead.jsx";
 import data from "../../../htconfig.json";
+import MemberSocials from "../../components/MemberSocials/MemberSocials.jsx";
 
 function MemberPage() {
   const [members, setMembers] = useState([]);
@@ -14,11 +15,6 @@ function MemberPage() {
   const [currentMember, setCurrentMember] = useState();
   const [memberProjects, setMemberProjects] = useState([]);
   const params = useParams();
-  const linkMap = {
-    ds: (link) => `https://discordapp.com/users/${link}`,
-    tg: (link) => `https://t.me/${link}`,
-    gh: (link) => `https://github.com/${link}`,
-  };
 
   const getMembers = () => {
     if (data.members) {
@@ -37,11 +33,13 @@ function MemberPage() {
 
   const getProjects = () => {
     let projects = [];
-    projects = currentMember.projects?.map((memberProject) =>
-      data.projects.find(
-        (currentProject) => currentProject.title === memberProject
-      )
-    );
+    if (currentMember.projects) {
+      projects = currentMember.projects?.map((memberProject) =>
+        data.projects.find(
+          (currentProject) => currentProject.gh === memberProject
+        )
+      );
+    }
     setMemberProjects(projects);
   };
 
@@ -102,21 +100,7 @@ function MemberPage() {
               })}
             </div>
             <div className={styles["contacts"]}>
-              {Object.entries(currentMember.socials).map(
-                ([key, value]) => {
-                  const link = linkMap[key] ? linkMap[key](value) : value;
-                  return (
-                    <a
-                      href={link}
-                      target="_blank"
-                      className={styles["contact-btn"]}
-                      key={key}
-                    >
-                      <Icons name={key} />
-                    </a>
-                  );
-                }
-              )}
+              <MemberSocials socials={currentMember.socials}/>
             </div>
             <DecorativeLine className={styles["dash"]} />
           </section>

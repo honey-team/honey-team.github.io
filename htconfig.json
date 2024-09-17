@@ -29,7 +29,7 @@
         "tg": "bleuuu1",
         "ds": "907966263270207519"
       },
-      "projects": ["DuplicateBot", "ufpy"]
+      "projects": ["DuplicateBot", "ufpy", "honey-team.github.io"]
     },
     {
       "gh": "moontr3",
@@ -63,14 +63,20 @@
   ],
   "projects": [
     {
-      "title": "ufpy",
-      "image": "/images/projects/test-img.jpg",
-      "description": "A program to track your daily keypresses."
+      "gh": "ufpy",
+      "image": "/images/projects/ufpy.png",
+      "description": "Библиотека на Python с множеством полезных функций"
     },
     {
-      "title": "DuplicateBot",
+      "gh": "DuplicateBot",
       "image": "/images/projects/test-img.jpg",
-      "description": "Bot for duplicate messages from telegram to discord."
+      "description": "Бот для дублирования сообщений из Telegram в Discord канал"
+    },
+    {
+      "gh": "honey-team.github.io",
+      "title": "Сайт",
+      "image": "/images/projects/test-img.png",
+      "description": "Сайт на React, на котором отображаются участники и проекты команды"
     }
   ]
 }

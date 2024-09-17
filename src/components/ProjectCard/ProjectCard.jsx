@@ -8,6 +8,10 @@ function ProjectCard({ project }, modificator) {
     return <></>;
   }
 
+  if (project.title === undefined) {
+    project.title = project.gh;
+  }
+
   return (
     <div
       className={cn(styles["project-card"], {

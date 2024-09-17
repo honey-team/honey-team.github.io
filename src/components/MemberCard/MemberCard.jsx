@@ -1,13 +1,10 @@
 import styles from "./MemberCard.module.css";
 import Icons from "../Icons/Icons";
 import { Link } from "react-router-dom";
+import MemberSocials from "../MemberSocials/MemberSocials";
 
 function MemberCard({ member }) {
-  const linkMap = {
-    ds: (link) => `https://discordapp.com/users/${link}`,
-    tg: (link) => `https://t.me/${link}`,
-    gh: (link) => `https://github.com/${link}`,
-  };
+  
 
   member.socials.gh = member.gh;
   return (
@@ -29,19 +26,7 @@ function MemberCard({ member }) {
         })}
       </div>
       <div className={styles["contacts"]}>
-        {Object.entries(member.socials).map(([key, value]) => {
-          const link = linkMap[key] ? linkMap[key](value) : value;
-          return (
-            <a
-              href={link}
-              target="_blank"
-              className={styles["contact-btn"]}
-              key={key}
-            >
-              <Icons name={key} />
-            </a>
-          );
-        })}
+        <MemberSocials socials={member.socials} />
       </div>
     </div>
   );
