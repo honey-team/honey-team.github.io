@@ -1,73 +1,73 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import DecorativeLine from "../../components/DecorativeLine/DecorativeLine"
-import Icons from "../../components/Icons/Icons"
-import styles from "./MemberPage.module.css"
-import Title from "../../components/Title/Title"
-import ProjectCard from "../../components/ProjectCard/ProjectCard"
-import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
-import config from "../../../htconfig.json"
-import { getLinks } from "../../components/MemberCard/MemberCard.jsx"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import DecorativeLine from "../../components/DecorativeLine/DecorativeLine";
+import Icons from "../../components/Icons/Icons";
+import styles from "./MemberPage.module.css";
+import Title from "../../components/Title/Title";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import HTHead, { Pages } from "../../components/HTHead/HTHead.jsx";
+import data from "../../../htconfig.json";
 
 function MemberPage() {
-  const [members, setMembers] = useState([])
-  const [error, setError] = useState(true)
-  const [currentMember, setCurrentMember] = useState()
-  const params = useParams()
+  const [members, setMembers] = useState([]);
+  const [error, setError] = useState(true);
+  const [currentMember, setCurrentMember] = useState();
+  const [memberProjects, setMemberProjects] = useState([]);
+  const params = useParams();
+  const linkMap = {
+    ds: (link) => `https://discordapp.com/users/${link}`,
+    tg: (link) => `https://t.me/${link}`,
+    gh: (link) => `https://github.com/${link}`,
+  };
 
   const getMembers = () => {
-    if (config.members) {
-      setMembers(config.members)
-    } else setError(true)
-  }
+    if (data.members) {
+      setMembers(data.members);
+    } else setError(true);
+  };
 
   const getCurrentMember = () => {
-    for (var value in members) {
-      value = members[value]
-      if (value.gh === params.id) {
-        setCurrentMember(value)
-        break
-      }
-    }
+    const member = members.find((member) => member.gh === params.name);
+    setCurrentMember(member);
 
-    if (currentMember) setError(false)
-    else setError(true)
-  }
+    if (currentMember) {
+      setError(false);
+    } else setError(true);
+  };
+
+  const getProjects = () => {
+    let projects = [];
+    projects = currentMember.projects?.map((memberProject) =>
+      data.projects.find(
+        (currentProject) => currentProject.title === memberProject
+      )
+    );
+    setMemberProjects(projects);
+  };
 
   useEffect(() => {
-    getMembers()
-  }, [])
+    getMembers();
+  }, []);
 
   useEffect(() => {
-    getCurrentMember()
-  }, [members, currentMember])
+    getCurrentMember();
+  }, [members, currentMember]);
 
-  var memberProjects = []
-  var projects_error = true
-  if (currentMember.projects && config.projects) {
-    for (var p in config.projects) {
-      console.log(p)
-      if (p.gh in currentMember.projects) {
-        memberProjects.push(<ProjectCard project={p}/>)
-        projects_error = false
-      }
-    }
-  }
-  console.log(memberProjects)
-
+  useEffect(() => {
+    if (currentMember) getProjects();
+  }, [currentMember]);
 
   if (!error) {
-    var s = {backgroundColor: '#262626'}
+    var s = { backgroundColor: "#262626" };
     if (currentMember.banner) {
-      if (currentMember.banner.startsWith('#')) {
-        s = {backgroundColor: currentMember.banner}
-      }
-      else {
+      if (currentMember.banner.startsWith("#")) {
+        s = { backgroundColor: currentMember.banner };
+      } else {
         s = {
           backgroundImage: `url('${currentMember.banner}')`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'auto 300px'
-        }
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "auto 300px",
+        };
       }
     }
   }
@@ -97,29 +97,49 @@ function MemberPage() {
             <div className={styles["info-section__stats"]}>
               <p className={styles["bio"]}>{currentMember?.bio}</p>
               <span className={styles["dot"]}>・</span>
-              {currentMember.langs.map((lang, index) => {
-                return <Icons name={lang} key={index} />
+              {currentMember.langs?.map((lang) => {
+                return <Icons name={lang} key={lang} />;
               })}
             </div>
             <div className={styles["contacts"]}>
-            {getLinks(currentMember.socials)}
+              {Object.entries(currentMember.socials).map(
+                ([key, value]) => {
+                  const link = linkMap[key] ? linkMap[key](value) : value;
+                  return (
+                    <a
+                      href={link}
+                      target="_blank"
+                      className={styles["contact-btn"]}
+                      key={key}
+                    >
+                      <Icons name={key} />
+                    </a>
+                  );
+                }
+              )}
             </div>
             <DecorativeLine className={styles["dash"]} />
           </section>
-		  <section className={styles["projects-section"]}>
-		  <div className="wrapper">
-			<Title className={styles["projects-section__title"]}>Проекты</Title>
-			{!projects_error && (
-        <div className={styles["projects-wrapper"]}>
-				  {memberProjects}
-			  </div>
-      )}
-			</div>
-		  </section>
+          <section className={styles["projects-section"]}>
+            <div className="wrapper">
+              <Title className={styles["projects-section__title"]}>
+                Проекты
+              </Title>
+              <div className={styles["projects-wrapper"]}>
+              {memberProjects?.length > 0 &&
+                  memberProjects?.map((project, index) => {
+                    return <ProjectCard project={project} key={index} />;
+                  })}
+                {memberProjects?.length === 0 && (
+                  <p>У этого участника еще нет проектов!</p>
+                )}
+              </div>
+            </div>
+          </section>
         </>
       )}
     </>
-  )
+  );
 }
 
-export default MemberPage
+export default MemberPage;

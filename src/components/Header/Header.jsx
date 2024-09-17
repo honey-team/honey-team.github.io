@@ -17,9 +17,9 @@ function Header() {
           </ul>
         </div>
         <div className={styles["right-part"]}>
-          <a href={Route("/", 'discord')}><Icons name="discord"/></a>
-          <a href={Route("/", 'tg')}><Icons name="telegram"/></a>
-          <a href={Route("/", 'gh')}><Icons name="github"/></a>
+          <a href={Route("/", 'discord')}><Icons name="ds"/></a>
+          <a href={Route("/", 'tg')}><Icons name="tg"/></a>
+          <a href={Route("/", 'gh')}><Icons name="gh"/></a>
         </div>
       </div>
     </header>

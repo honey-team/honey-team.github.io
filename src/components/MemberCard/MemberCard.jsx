@@ -1,66 +1,50 @@
-import styles from "./MemberCard.module.css"
-import Icons from "../Icons/Icons"
-import { Link } from "react-router-dom"
-
-export function getLinks(member_links) {
-  let r = []
-  let i = 0
-
-  for(var key in member_links) {
-    var l
-
-    switch (key) {
-      case 'ds':
-        l = `https://discordapp.com/users/${member_links[key]}`
-        break
-      case 'tg':
-        l = `https://t.me/${member_links[key]}`
-        break
-      case 'gh':
-        l = `https://github.com/${member_links[key]}`
-        break
-      default:
-        l = member_links[key]
-        break
-    }
-
-    r.push(
-      <a href={l} target="_blank" className={styles["contact-btn"]} key={i}>
-        <Icons name={key} />
-      </a>
-    )
-    i += 1
-  }
-
-  return r
-}
+import styles from "./MemberCard.module.css";
+import Icons from "../Icons/Icons";
+import { Link } from "react-router-dom";
 
 function MemberCard({ member }) {
-  member.socials.gh = member.gh
+  const linkMap = {
+    ds: (link) => `https://discordapp.com/users/${link}`,
+    tg: (link) => `https://t.me/${link}`,
+    gh: (link) => `https://github.com/${link}`,
+  };
+
+  member.socials.gh = member.gh;
   return (
     <div className={styles["card"]}>
       <Link to={`/members/${member.gh}`}>
-        <img
-          className={styles["circular--square"]}
-          src={`https://avatars.githubusercontent.com/${member.gh}`}
-        />
+        <div className={styles["image"]}>
+          <img
+            alt={member.gh}
+            src={`https://avatars.githubusercontent.com/${member.gh}`}
+          />
+        </div>
       </Link>
       <Link to={`/members/${member.gh}`}>
-	  	  <p className={styles["title"]}>{member.gh}</p>
-	    </Link>
+        <p className={styles["title"]}>{member.gh}</p>
+      </Link>
       <div className={styles["skills"]}>
-        {
-          member.langs.map((item, index) => {
-            return <Icons name={item} key={index} />
-          })
-        }
+        {member.langs.map((item, index) => {
+          return <Icons name={item} key={index} />;
+        })}
       </div>
       <div className={styles["contacts"]}>
-        {getLinks(member.socials)}
+        {Object.entries(member.socials).map(([key, value]) => {
+          const link = linkMap[key] ? linkMap[key](value) : value;
+          return (
+            <a
+              href={link}
+              target="_blank"
+              className={styles["contact-btn"]}
+              key={key}
+            >
+              <Icons name={key} />
+            </a>
+          );
+        })}
       </div>
     </div>
-    
-  )
+  );
 }
 
-export default MemberCard
+export default MemberCard;

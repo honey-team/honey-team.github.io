@@ -10,7 +10,6 @@ function Icons({name, ...props}) {
 				</svg>
 			)
 			break
-		case "discord":
 		case "ds":
 			icon = (
 				<svg width="29" height="22" viewBox="0 0 29 22" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -18,7 +17,6 @@ function Icons({name, ...props}) {
 				</svg>
 			)
 			break
-		case "telegram":
 		case "tg":
 			icon = (
 				<svg width="29" height="24" viewBox="0 0 29 24" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -26,7 +24,6 @@ function Icons({name, ...props}) {
 				</svg>
 			)
 			break
-		case "github":
 		case "gh":
 			icon = (
 				<svg width="27" height="26" viewBox="0 0 27 26" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -48,7 +45,6 @@ function Icons({name, ...props}) {
 				</svg>
 			)
 			break
-		case "cite":
 		case "custom":
 			icon = (
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
