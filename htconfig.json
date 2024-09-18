@@ -69,13 +69,11 @@
     },
     {
       "gh": "DuplicateBot",
-      "image": "/images/projects/test-img.jpg",
       "description": "Бот для дублирования сообщений из Telegram в Discord канал"
     },
     {
       "gh": "honey-team.github.io",
       "title": "Сайт",
-      "image": "/images/projects/test-img.jpg",
       "description": "Сайт на React, на котором отображаются участники и проекты команды"
     }
   ]
