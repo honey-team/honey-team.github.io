@@ -25,7 +25,9 @@ function ProjectCard({ project }, modificator) {
           {project.description}
         </div>
         <div className={styles["project-card__button"]}>
-          <Button modificator={"flat-orange"}>GitHub</Button>
+          <a href={`https://github.com/honey-team/${project.gh}`}>
+            <Button modificator={"flat-orange"}>GitHub</Button>
+          </a>
         </div>
       </div>
     </div>
