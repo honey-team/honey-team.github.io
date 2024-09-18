@@ -8,10 +8,6 @@ function ProjectCard({ project }, modificator) {
     return <></>;
   }
 
-  if (project.title === undefined) {
-    project.title = project.gh;
-  }
-
   return (
     <div
       className={cn(styles["project-card"], {
@@ -22,7 +18,9 @@ function ProjectCard({ project }, modificator) {
         <img src={project.image}></img>
       </div>
       <div className={styles["project-card__info"]}>
-        <div className={styles["project-card__title"]}>{project.title}</div>
+        <div className={styles["project-card__title"]}>
+          {project.title ? project.title : project.gh}
+        </div>
         <div className={styles["project-card__description"]}>
           {project.description}
         </div>

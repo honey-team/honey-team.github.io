@@ -115,7 +115,7 @@ function MemberPage() {
                     return <ProjectCard project={project} key={index} />;
                   })}
                 {memberProjects?.length === 0 && (
-                  <p>У этого участника еще нет проектов!</p>
+                  <p>У этого участника еще нет проектов</p>
                 )}
               </div>
             </div>
