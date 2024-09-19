@@ -28,7 +28,7 @@ function ProjectCard({ project }, modificator) {
           <a href={`https://github.com/honey-team/${project.gh}`}>
             <Button modificator={"flat-orange"}>GitHub</Button>
           </a>
-        </div>
+          </div>
       </div>
     </div>
   );
