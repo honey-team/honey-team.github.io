@@ -18,6 +18,10 @@ function ProjectCard({ project }, modificator) {
         <img src={project.image ? project.image : '/images/projects/default.png'}></img>
       </div>
       <div className={styles["project-card__info"]}>
+      <div className={styles["project-card__gradient"]}>
+        </div>
+        <div className={styles["project-card__fill"]}>
+        </div>
         <div className={styles["project-card__title"]}>
           {project.title ? project.title : project.gh}
         </div>
