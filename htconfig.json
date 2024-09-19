@@ -44,13 +44,15 @@
     },
     {
       "gh": "mbutsk",
-      "bio": "Мбуцк",
-      "langs": ["py"],
+      "banner": "#0052ff",
+      "bio": "Разработчик Telegram-ботов из Беларуси🤠",
+      "langs": ["py", "js"],
       "socials": {
-        "tg": "HomyakHomyak",
+        "tg": "mbutskch",
         "ds": "558214919405830151",
         "custom": "https://mbutsk.xyz"
-      }
+      },
+      "projects": ["buckshot"]
     },
     {
       "gh": "TheHakerTech",
@@ -75,6 +77,11 @@
       "gh": "honey-team.github.io",
       "title": "Сайт",
       "description": "Сайт на React, на котором отображаются участники и проекты команды"
+    },
+    {
+      "gh": "buckshot",
+      "title": "Buckshot bot",
+      "description": "Telegram-бот, имитирующий Buckshot Roulette"
     }
   ]
 }
