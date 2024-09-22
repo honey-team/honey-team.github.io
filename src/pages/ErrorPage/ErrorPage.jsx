@@ -7,7 +7,9 @@ function ErrorPage() {
     <div className={styles["error-page"]}>
       <span>404</span>
       <p>Страница не найдена</p>
-      <Link to="/"><Button modificator="flat-orange" style={{width: "400px"}}>На главную</Button></Link>
+      <Link to="/">
+        <Button modificator="flat-orange" style={{width: "400px"}}>На главную</Button>
+      </Link>
     </div>
   )
 }
