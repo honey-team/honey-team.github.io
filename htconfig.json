@@ -61,6 +61,16 @@
       "socials": {
         "tg": "hopTech"
       }
+    },
+    {
+      "gh": "n0n1m",
+      "bio": "ноним",
+      "langs": ["py"],
+      "socials": {
+        "tg": "n0nim1",
+        "ds": "981586348198735912"
+      },
+      "projects": ["ForwardBot"]
     }
   ],
   "projects": [
@@ -82,6 +92,11 @@
       "gh": "buckshot",
       "title": "Buckshot bot",
       "description": "Telegram-бот, имитирующий Buckshot Roulette"
+    },
+    {
+      "gh": "ForwardBot",
+      "image": "/images/projects/logo.png",
+      "description": "Бот для перессылки сообщений между серверами в Discord"
     }
   ]
 }
