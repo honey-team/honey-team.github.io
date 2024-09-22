@@ -1,59 +1,63 @@
-import { Helmet } from "react-helmet"
-
-import Route from "../../utils/links"
-
-import htconfig from "../../../htconfig.json"
+import { Helmet } from "react-helmet";
+import Route from "../../utils/links";
+import htconfig from "../../../htconfig.json";
 
 
 export const Pages = {
     index: 'index',
     members: 'members',
-    projects: 'projects'
+    projects: 'projects',
+    member: 'member',
+    project: 'project'
 }
 
-export default function HTHead({name, ...props}) {
-    const page = props.page
-    
-    let url
+export default function HTHead({name, page, gh, ...props}) {
+    let url;
     switch (page) {
         case (Pages.index):
-            url = Route('/')
-            break
+            url = Route('/');
+            break;
         case (Pages.members):
-            url = Route('/members')
-            break
+            url = Route('/members');
+            break;
+        case (Pages.member):
+            url = Route(`/members/${gh}`);
+            break;
         case (Pages.projects):
-            url = Route('/projects')
-            break
+            url = Route('/projects');
+            break;
+        case (Pages.project):
+            url = Route(`/projects/${gh}`);
+            break;
         default:
-            console.log('404: HTHead: You used unsupported page: %s\n', page)
-            return null
+            console.log('404: HTHead: You used unsupported page: %s\n', page);
+            return null;
     }
 
-    const page_title = htconfig.titles[page]
+    const page_title = gh ? gh : htconfig.titles[page];
 
-    let favicon = htconfig.favicon[page]
+    let favicon = htconfig.favicon[page];
     if (favicon === null) {
-        favicon = Route(htconfig.favicon.index)
+        favicon = Route(htconfig.favicon.index);
     }
     else {
-        favicon = Route(favicon)
+        favicon = Route(favicon);
     }
 
-    let description = htconfig.description[page]
+    let description = htconfig.description[page];
     if (description === null) {
-        description = Route(htconfig.description.index)
+        description = Route(htconfig.description.index);
     }
     else {
-        description = Route(description)
+        description = Route(description);
     }
 
-    let og_image = htconfig.og[page]
+    let og_image = htconfig.og[page];
     if (og_image === null) {
-        og_image = Route(htconfig.og.index)
+        og_image = Route(htconfig.og.index);
     }
     else {
-        og_image = Route(og_image)
+        og_image = Route(og_image);
     }
 
     return (
@@ -75,5 +79,5 @@ export default function HTHead({name, ...props}) {
             <meta name="twitter:description" content={description}/>
             <meta name="twitter:image" content={og_image}/>
         </Helmet>
-    )
+    );
 }

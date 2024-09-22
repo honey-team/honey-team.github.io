@@ -14,16 +14,21 @@ function ProjectCard({ project }, modificator) {
         [styles["project-card_small"]]: modificator === "small",
       })}
     >
-      <div className={styles["project-card__img"]}>
-        <img src={project.image ? project.image : '/images/projects/default.png'}></img>
-      </div>
+      <Link to={`/projects/${project.gh}`}>
+        <div className={styles["project-card__img"]}>
+          <img src={project.image ? project.image : '/images/projects/default.png'}/>
+        </div>
+      </Link>
+      
       <div className={styles["project-card__info"]}>
       <div className={styles["project-card__gradient"]}>
         </div>
         <div className={styles["project-card__fill"]}>
         </div>
         <div className={styles["project-card__title"]}>
-          {project.title ? project.title : project.gh}
+          <Link to={`/projects/${project.gh}`}>
+            {project.title ? project.title : project.gh}
+          </Link>
         </div>
         <div className={styles["project-card__description"]}>
           {project.description}

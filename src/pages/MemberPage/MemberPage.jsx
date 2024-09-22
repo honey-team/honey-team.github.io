@@ -8,6 +8,7 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import HTHead, { Pages } from "../../components/HTHead/HTHead.jsx";
 import data from "../../../htconfig.json";
 import MemberSocials from "../../components/MemberSocials/MemberSocials.jsx";
+import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 
 function MemberPage() {
   const [members, setMembers] = useState([]);
@@ -72,14 +73,12 @@ function MemberPage() {
 
   return (
     <>
-      <HTHead page={Pages.index} />
       {error && (
-        <div className="wrapper">
-          <p>Участник не найден</p>
-        </div>
+        <ErrorPage/>
       )}
       {!error && (
         <>
+          <HTHead page={Pages.member} gh={currentMember.gh} />
           <section className={styles["head-section"]} style={s}>
             <div className={styles["avatar-wrapper"]}>
               <img
