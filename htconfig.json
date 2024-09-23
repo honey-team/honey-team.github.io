@@ -24,7 +24,7 @@
       "gh": "bleudev",
       "banner": "#0000ff",
       "bio": "Синий",
-      "langs": ["py", "js"],
+      "langs": ["py", "js", "cpp", "csh", "java", "lua", "unity", "godot", "unreal", "web", "react", "flutter", "qt", "db"],
       "socials": {
         "tg": "bleuuu1",
         "ds": "907966263270207519"
