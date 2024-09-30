@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import data from "../../../htconfig.json";
 import HTHead, { Pages } from "../../components/HTHead/HTHead.jsx";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
+import ProjectPageCard from "../../components/ProjectPageCard/ProjectPageCard.jsx";
 
 export default function ProjectPage() {
     const [projects, setProjects] = useState([]);
@@ -64,7 +65,7 @@ export default function ProjectPage() {
             {!error && (
                 <>
                     <HTHead page={Pages.project} gh={currentProject.gh} />
-                    Under dev
+                    <ProjectPageCard project={currentProject}/>
                 </>
             )}
         </>
