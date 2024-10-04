@@ -11,7 +11,7 @@ function ProjectsPage() {
 
   const getProjects = () => {
     if (config.projects) {
-      setProjects(config.projects)
+      setProjects(config.projects.filter((project) => !project.gh.includes("/")))
       setError(false)
     } else setError(true)
   }
