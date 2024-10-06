@@ -12,7 +12,8 @@
   "titles": {
     "index": "HoneyTeam 🍯",
     "members": "Наши участники 👥",
-    "projects": "Наши проекты 📦"
+    "projects": "Наши проекты 📦",
+    "blog": "Наш блог ✍"
   },
   "og": {
     "index": "/socials/opengraph.png",

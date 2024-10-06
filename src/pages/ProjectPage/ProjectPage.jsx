@@ -4,6 +4,7 @@ import data from "../../../htconfig.json";
 import HTHead, { Pages } from "../../components/HTHead/HTHead.jsx";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import ProjectPageCard from "../../components/ProjectPageCard/ProjectPageCard.jsx";
+import is_dev from "../../utils/dev";
 
 export default function ProjectPage() {
     const [projects, setProjects] = useState([]);
@@ -62,12 +63,18 @@ export default function ProjectPage() {
             {error && (
                 <ErrorPage/>
             )}
-            {!error && (
+            {!error && is_dev.project_page && (
                 <>
                     <HTHead page={Pages.project} gh={currentProject.gh} />
                     <ProjectPageCard project={currentProject}/>
                 </>
             )}
+            {!error && !is_dev.project_page && (
+                <>
+                    <HTHead page={Pages.project} gh={currentProject.gh} />
+                    <h1>В разработке!</h1>
+                </>
+            )} 
         </>
     );
 }

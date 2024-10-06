@@ -1,83 +1,79 @@
 import { Helmet } from "react-helmet";
 import Route from "../../utils/links";
 import htconfig from "../../../htconfig.json";
-
+import Favicon from "react-favicon";
 
 export const Pages = {
     index: 'index',
     members: 'members',
     projects: 'projects',
     member: 'member',
-    project: 'project'
+    project: 'project',
+    blog: 'blog',
+    post: 'post'
 }
 
-export default function HTHead({name, page, gh, ...props}) {
-    let url;
-    switch (page) {
-        case (Pages.index):
-            url = Route('/');
-            break;
-        case (Pages.members):
-            url = Route('/members');
-            break;
-        case (Pages.member):
-            url = Route(`/members/${gh}`);
-            break;
-        case (Pages.projects):
-            url = Route('/projects');
-            break;
-        case (Pages.project):
-            url = Route(`/projects/${gh}`);
-            break;
-        default:
-            console.log('404: HTHead: You used unsupported page: %s\n', page);
-            return null;
+export default function HTHead({page, gh, id}) {
+    const urls = [
+        [Pages.index, '/'],
+        [Pages.members, '/members'],
+        [Pages.member, `/members/${gh}`],
+        [Pages.projects, '/projects'],
+        [Pages.project, `/projects/${gh}`],
+        [Pages.blog, '/blog'],
+        [Pages.post, `/blog/${id}`]
+    ];
+    let url = urls.find((value) => page === value[0]);
+    if (url) url = url[1];
+
+    console.log(url);
+    if (!url) {
+        return console.log('404: HTHead: You used unsupported page: %s\n', page);
     }
 
     const page_title = gh ? gh : htconfig.titles[page];
 
-    let favicon = htconfig.favicon[page];
-    if (favicon === null) {
-        favicon = Route(htconfig.favicon.index);
+    let favicon = Route(htconfig.favicon.index);
+
+    if (page === Pages.member)
+        favicon = `https://avatars.githubusercontent.com/${gh}`;
+    else if (page === Pages.project) {
+        let project = htconfig.projects.find((value) => value.gh === gh);
+        if (project && project.image)
+            favicon = Route(project.image);
     }
     else {
-        favicon = Route(favicon);
+        favicon = htconfig.favicon[page];
+        favicon = favicon ? Route(favicon) : Route(htconfig.favicon.index);
     }
+
 
     let description = htconfig.description[page];
-    if (description === null) {
-        description = Route(htconfig.description.index);
-    }
-    else {
-        description = Route(description);
-    }
+    description = description ? Route(description) : Route(htconfig.description.index);
 
     let og_image = htconfig.og[page];
-    if (og_image === null) {
-        og_image = Route(htconfig.og.index);
-    }
-    else {
-        og_image = Route(og_image);
-    }
+    og_image = og_image ? Route(og_image) : Route(htconfig.og.index);
 
     return (
-        <Helmet>
-            <title>{page_title}</title>
-            <link rel="icon" href={favicon} />
-            <meta name="description" content={description}/>
-            <meta property="og:url" content={url}/>
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content={page_title}/>
-            <meta property="og:description" content={description}/>
-            <meta property="og:image" content={og_image}/>
-            <meta property="og:image:width" content="1000"/>
-            <meta property="og:image:height" content="500"/>
-            <meta name="twitter:card" content="summary_large_image"/>
-            <meta property="twitter:domain" content={Route('/')}/>
-            <meta property="twitter:url" content={url}/>
-            <meta name="twitter:title" content={page_title}/>
-            <meta name="twitter:description" content={description}/>
-            <meta name="twitter:image" content={og_image}/>
-        </Helmet>
+        <>
+            <Favicon url={favicon}/>
+            <Helmet>
+                <title>{page_title}</title>
+                <meta name="description" content={description}/>
+                <meta property="og:url" content={url}/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content={page_title}/>
+                <meta property="og:description" content={description}/>
+                <meta property="og:image" content={og_image}/>
+                <meta property="og:image:width" content="1000"/>
+                <meta property="og:image:height" content="500"/>
+                <meta name="twitter:card" content="summary_large_image"/>
+                <meta property="twitter:domain" content={Route('/')}/>
+                <meta property="twitter:url" content={url}/>
+                <meta name="twitter:title" content={page_title}/>
+                <meta name="twitter:description" content={description}/>
+                <meta name="twitter:image" content={og_image}/>
+            </Helmet>
+        </>
     );
 }

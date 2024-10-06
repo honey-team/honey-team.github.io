@@ -2,6 +2,7 @@ import Button from "../Button/Button";
 import styles from "./ProjectCard.module.css";
 import { Link } from "react-router-dom";
 import cn from "classnames";
+import is_dev from "../../utils/dev";
 
 function ProjectCard({ project }, modificator) {
   if (!project) {
@@ -14,11 +15,18 @@ function ProjectCard({ project }, modificator) {
         [styles["project-card_small"]]: modificator === "small",
       })}
     >
-      <Link to={`/projects/${project.gh}`}>
+      {is_dev.project_page && (
+        <Link to={`/projects/${project.gh}`}>
+          <div className={styles["project-card__img"]}>
+            <img src={project.image ? project.image : '/images/projects/default.png'}/>
+          </div>
+        </Link>
+      )}
+      {!is_dev.project_page && (
         <div className={styles["project-card__img"]}>
           <img src={project.image ? project.image : '/images/projects/default.png'}/>
         </div>
-      </Link>
+      )}
       
       <div className={styles["project-card__info"]}>
       <div className={styles["project-card__gradient"]}>
@@ -26,9 +34,17 @@ function ProjectCard({ project }, modificator) {
         <div className={styles["project-card__fill"]}>
         </div>
         <div className={styles["project-card__title"]}>
-          <Link to={`/projects/${project.gh}`}>
-            {project.title ? project.title : project.gh}
-          </Link>
+
+          {is_dev.project_page && (
+            <Link to={`/projects/${project.gh}`}>
+              {project.title ? project.title : project.gh}
+            </Link>
+          )}
+          {!is_dev.project_page && (
+            <>
+              {project.title ? project.title : project.gh}
+            </>
+          )}
         </div>
         <div className={styles["project-card__description"]}>
           {project.description}
