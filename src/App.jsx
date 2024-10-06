@@ -1,11 +1,12 @@
-import MainPage from "./pages/MainPage/MainPage.jsx"
-import MembersPage from "./pages/MembersPage/MembersPage.jsx"
-import MemberPage from "./pages/MemberPage/MemberPage.jsx"
-import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { Layout } from "./layout/Layout.jsx"
-import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx"
-import BlogPage from "./pages/BlogPage/BlogPage.jsx"
+import MainPage from "./pages/MainPage/MainPage.jsx";
+import MembersPage from "./pages/MembersPage/MembersPage.jsx";
+import MemberPage from "./pages/MemberPage/MemberPage.jsx";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Layout } from "./layout/Layout.jsx";
+import ProjectsPage from "./pages/ProjectsPage/ProjectsPage.jsx";
+import ProjectPage from "./pages/ProjectPage/ProjectPage.jsx";
+import BlogPage from "./pages/BlogPage/BlogPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         element: <ProjectsPage />
       },
       {
+        path: "/projects/:name",
+        element: <ProjectPage />
+      },
+      {
         path: "/blog",
         element: <BlogPage />
       },
@@ -37,8 +42,7 @@ const router = createBrowserRouter([
         element: <ErrorPage />
       }
     ]
-  },
-
+  }
 ])
 
 export default function App() {

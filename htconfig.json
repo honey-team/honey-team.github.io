@@ -12,7 +12,8 @@
   "titles": {
     "index": "HoneyTeam 🍯",
     "members": "Наши участники 👥",
-    "projects": "Наши проекты 📦"
+    "projects": "Наши проекты 📦",
+    "blog": "Наш блог ✍"
   },
   "og": {
     "index": "/socials/opengraph.png",
@@ -24,7 +25,7 @@
       "gh": "bleudev",
       "banner": "#0000ff",
       "bio": "Синий",
-      "langs": ["py", "js"],
+      "langs": ["py", "js", "cpp", "csh", "java", "lua", "unity", "godot", "unreal", "web", "react", "flutter", "qt", "db"],
       "socials": {
         "tg": "bleuuu1",
         "ds": "907966263270207519"
@@ -33,12 +34,12 @@
     },
     {
       "gh": "moontr3",
-      "bio": "Японец",
-      "langs": ["py"],
+      "bio": "日本の開発者",
+      "langs": ["py", "web", "qt", "lua", "unity", "cpp"],
       "socials": {
         "tg": "moontr3",
         "ds": "698457845301248010",
-        "custom": "https://moontr3.ru"
+        "site": "https://moontr3.ru"
       },
       "projects": []
     },
@@ -50,7 +51,7 @@
       "socials": {
         "tg": "mbutskch",
         "ds": "558214919405830151",
-        "custom": "https://mbutsk.xyz"
+        "site": "https://mbutsk.xyz"
       },
       "projects": ["buckshot"]
     },

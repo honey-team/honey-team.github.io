@@ -12,12 +12,11 @@
 .orange {
 	color: var(--text-color-white);
 	background: var(--secondary-gradient);
-	
 	box-shadow: 0px 4px 6px 0px rgba(255, 80, 0, 40%);
 }
 
 .orange:hover {
-	background: #fff;
+	background: #ffffff;
 	color: #FF8E3F;
 	box-shadow: none;
 }
@@ -46,7 +45,7 @@
 }
 
 .flat-orange:hover {
-	background: #fff;
+	background: #ffffff;
 	color: #FF8E3F;
 	box-shadow: none;
 }
