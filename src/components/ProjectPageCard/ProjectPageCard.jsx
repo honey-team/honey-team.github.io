@@ -1,4 +1,4 @@
-import useImageColors, {} from "react-image-colors";
+import useImageColors from "react-image-colors";
 import styles from "./ProjectPageCard.module.css";
 import Route from "../../utils/links";
 
@@ -23,8 +23,10 @@ export default function ProjectPageCard({project, ...props}) {
 
     return (
         <div className={styles["card"]} style={{background: `linear-gradient(to right, ${avcolor} 0%, #272727 100%)`}}>
-            {project.gh}
-            <img src={image_url} height='24'/>
+            <div className={styles["row"]}>
+                <img src={image_url} className={styles["pimage"]}/>
+                <h1 className={styles["pname"]}>{project.gh}</h1>
+            </div>
         </div>
     );
 }
