@@ -38,11 +38,11 @@ export default function ProjectPage() {
 
     const getProjectMembers = () => {
         let res = [];
-        if (members) {
-            res = members.find(
-                (member) => currentProject.gh in (member.projects ? member.projects : [])
-            );
-        }
+
+        members.forEach((v) => {
+            if (v.projects?.includes(currentProject.gh))
+                res.push(v);
+        });
         setProjectMembers(res);
     }
 
@@ -57,7 +57,7 @@ export default function ProjectPage() {
     }, [projects, currentProject]);
     useEffect(() => {
         if (currentProject) getProjectMembers();
-    }, [])
+    }, [members, currentProject])
 
     return (
         <>
@@ -67,7 +67,7 @@ export default function ProjectPage() {
             {!error && is_dev.project_page && (
                 <div className={styles["page"]}>
                     <HTHead page={Pages.project} gh={currentProject.gh} />
-                    <ProjectPageCard project={currentProject}/>
+                    <ProjectPageCard project={currentProject} members={projectMembers}/>
                 </div>
             )}
             {!error && !is_dev.project_page && (

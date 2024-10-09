@@ -23,3 +23,19 @@
     font-weight: 900;
     font-size: 48px;
 }
+
+.pdesc {
+    position: relative;
+    padding: 5px;
+    color: #9f9b9d;
+    width: 500px;
+}
+
+.psocials {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 40px);
+	grid-auto-flow: column;
+	grid-gap: 10px;
+	justify-content: left;
+}

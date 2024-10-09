@@ -1,8 +1,10 @@
 import useImageColors from "react-image-colors";
 import styles from "./ProjectPageCard.module.css";
 import Route from "../../utils/links";
+import ProjectMembersAvatars from "../ProjectMembersAvatars/ProjectMembersAvatars";
+import MemberSocials from "../MemberSocials/MemberSocials";
 
-export default function ProjectPageCard({project, ...props}) {
+export default function ProjectPageCard({project, members, ...props}) {
     // const fac = new FastAverageColor();
 
     const image_url = project.image ? Route(project.image) : Route('/images/projects/default.png');
@@ -14,18 +16,40 @@ export default function ProjectPageCard({project, ...props}) {
     //     avcolor = `rgba(${red}, ${green}, ${blue}, ${alpha})`;
     // });
 
-    var options = {
+    var { avcolor } = useImageColors(image_url, {
         generateGradient: false
-    }
-    var { avcolor } = useImageColors(image_url, options);
+    });
     if (!avcolor) avcolor = '#272727';
-    console.log(avcolor)
+
+    let members_ghs = [];
+
+    members.forEach((member) => {
+        if (member)
+            members_ghs.push(member?.gh);
+    })
+
+    // let socials = project.socials;
+    // socials = {
+    //     gh: project.gh,
+    //     ...socials
+    // };
+
+    console.log(members);
+    console.log(members_ghs);
 
     return (
         <div className={styles["card"]} style={{background: `linear-gradient(to right, ${avcolor} 0%, #272727 100%)`}}>
             <div className={styles["row"]}>
                 <img src={image_url} className={styles["pimage"]}/>
-                <h1 className={styles["pname"]}>{project.gh}</h1>
+                <div>
+                    <h1 className={styles["pname"]}>{project.gh}</h1>
+                    {/* <ProjectMembersAvatars members={["bleudev", "moontr3", "mbutsk"]} with_text={true}/> */}
+                    <ProjectMembersAvatars members={members_ghs} with_text={true}/>
+                    <p className={styles["pdesc"]}>{project.description ? project.description : "Нет описания..."}</p>
+                    <div className={styles["psocials"]}>
+                        <MemberSocials socials={{gh: `honey-team/${project.gh}` , ...project.socials}} height={40}/>
+                    </div>
+                </div>
             </div>
         </div>
     );
