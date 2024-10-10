@@ -6,7 +6,6 @@ import MemberSocials from "../MemberSocials/MemberSocials";
 
 export default function ProjectPageCard({project, members, ...props}) {
     const image_url = project.image ? Route(project.image) : Route('/images/projects/default.png');
-    console.log(image_url)
 
     var { avcolor } = useImageColors(image_url, {
         generateGradient: false

@@ -11,10 +11,9 @@ export default function MemberSocials({ socials, height = 45 }) {
     return (
         <>
             {Object.entries(socials).map(([key, value]) => {
-                const link = linkMap[key] ? linkMap[key](value) : value;
                 return (
                     <a
-                    href={link}
+                    href={linkMap[key] ? linkMap[key](value) : value}
                     target="_blank"
                     className={styles["contact-btn"]}
                     style={{height: `${height}px`}}
