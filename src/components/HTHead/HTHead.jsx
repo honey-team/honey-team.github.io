@@ -10,7 +10,8 @@ export const Pages = {
     member: 'member',
     project: 'project',
     blog: 'blog',
-    post: 'post'
+    post: 'post',
+    error: 'error'
 }
 
 export default function HTHead({page, gh, id}) {
@@ -21,12 +22,12 @@ export default function HTHead({page, gh, id}) {
         [Pages.projects, '/projects'],
         [Pages.project, `/projects/${gh}`],
         [Pages.blog, '/blog'],
-        [Pages.post, `/blog/${id}`]
+        [Pages.post, `/blog/${id}`],
+        [Pages.error, 'undefined']
     ];
     let url = urls.find((value) => page === value[0]);
     if (url) url = url[1];
 
-    console.log(url);
     if (!url) {
         return console.log('404: HTHead: You used unsupported page: %s\n', page);
     }
@@ -60,7 +61,9 @@ export default function HTHead({page, gh, id}) {
             <Helmet>
                 <title>{page_title}</title>
                 <meta name="description" content={description}/>
-                <meta property="og:url" content={url}/>
+                {url != 'undefined' && (
+                    <meta property="og:url" content={url}/>
+                )}
                 <meta property="og:type" content="website"/>
                 <meta property="og:title" content={page_title}/>
                 <meta property="og:description" content={description}/>
@@ -69,7 +72,9 @@ export default function HTHead({page, gh, id}) {
                 <meta property="og:image:height" content="500"/>
                 <meta name="twitter:card" content="summary_large_image"/>
                 <meta property="twitter:domain" content={Route('/')}/>
-                <meta property="twitter:url" content={url}/>
+                {url != 'undefined' && (
+                    <meta property="twitter:url" content={url}/>
+                )}
                 <meta name="twitter:title" content={page_title}/>
                 <meta name="twitter:description" content={description}/>
                 <meta name="twitter:image" content={og_image}/>

@@ -25,6 +25,9 @@ function MemberPage() {
 
   const getCurrentMember = () => {
     const member = members.find((member) => member.gh === params.name);
+
+    if (member)
+      member.socials = {gh: member.gh, ...member.socials};
     setCurrentMember(member);
 
     if (currentMember) {
@@ -92,8 +95,7 @@ function MemberPage() {
               {currentMember.gh}
             </h1>
             <div className={styles["info-section__stats"]}>
-              <p className={styles["bio"]}>{currentMember?.bio}</p>
-              <span className={styles["dot"]}>・</span>
+              <p className={styles["bio"]}>{currentMember?.bio} ・</p>
               {currentMember.langs?.map((lang) => {
                 return <Icons name={lang} key={lang} />;
               })}
@@ -110,12 +112,12 @@ function MemberPage() {
               </Title>
               <div className={styles["projects-wrapper"]}>
               {memberProjects?.length > 0 &&
-                  memberProjects?.map((project, index) => {
-                    return <ProjectCard project={project} key={index} />;
-                  })}
-                {memberProjects?.length === 0 && (
-                  <p>У этого участника еще нет проектов</p>
-                )}
+                memberProjects?.map((project, index) => {
+                  return <ProjectCard project={project} key={index} />;
+                })}
+              {memberProjects?.length === 0 && (
+                <p>У этого участника еще нет проектов</p>
+              )}
               </div>
             </div>
           </section>

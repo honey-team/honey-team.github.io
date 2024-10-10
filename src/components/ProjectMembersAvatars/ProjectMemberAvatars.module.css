@@ -1,0 +1,52 @@
+#mimg {
+    border: 2px solid #272727;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.mimg1 {
+    left: 0px;
+    z-index: 3;
+}
+
+.mimg2 {
+    left: -15px;
+    z-index: 2;
+}
+
+.mimg3 {
+    left: -25px;
+    z-index: 1;
+}
+
+.avatars_row {
+	display: flex;
+    width: 500px;
+}
+
+.avatars_text {
+    color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    /* left: 5px; */
+    /* -20px */
+    top: 1px;
+}
+
+#avtext1 {
+    left: 5px;
+}
+
+#avtext2 {
+    left: -10px;
+}
+
+#avtext3 {
+    left: -20px;
+}
+
+.avatars_text bold {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 900;
+}

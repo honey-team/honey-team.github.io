@@ -13,7 +13,8 @@
     "index": "HoneyTeam 🍯",
     "members": "Наши участники 👥",
     "projects": "Наши проекты 📦",
-    "blog": "Наш блог ✍"
+    "blog": "Наш блог ✍",
+    "error": "Ошибка 404 ⚠"
   },
   "og": {
     "index": "/socials/opengraph.png",
@@ -53,7 +54,7 @@
         "ds": "558214919405830151",
         "site": "https://mbutsk.xyz"
       },
-      "projects": ["buckshot"]
+      "projects": ["buckshot", "ufpy"]
     },
     {
       "gh": "TheHakerTech",
@@ -61,14 +62,19 @@
       "langs": ["py"],
       "socials": {
         "tg": "hopTech"
-      }
+      },
+      "projects": ["ufpy"]
     }
   ],
   "projects": [
     {
       "gh": "ufpy",
       "image": "/images/projects/ufpy.png",
-      "description": "Библиотека на Python с множеством полезных функций"
+      "description": "Библиотека на Python с множеством полезных функций",
+      "socials": {
+        "tg": "HoneyTeamC_bot",
+        "site": "https://honey-team.ru/ufpy-website"
+      }
     },
     {
       "gh": "DuplicateBot",

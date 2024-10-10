@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import MemberSocials from "../MemberSocials/MemberSocials";
 
 function MemberCard({ member }) {
-  
-
-  member.socials.gh = member.gh;
   return (
     <div className={styles["card"]}>
       <Link to={`/members/${member.gh}`}>
@@ -26,7 +23,7 @@ function MemberCard({ member }) {
         })}
       </div>
       <div className={styles["contacts"]}>
-        <MemberSocials socials={member.socials} />
+        <MemberSocials socials={{gh: member.gh, ...member.socials}} />
       </div>
     </div>
   );
