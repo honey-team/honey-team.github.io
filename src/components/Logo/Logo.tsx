@@ -10,11 +10,14 @@ export enum Color {
 
 type LogoProps = {
     color: Color;
+    classNames?: string[];
+    // Other props
+    [key: string]: any;
 }
 
-const Logo: FunctionComponent<LogoProps> = ({ color }) => {
+const Logo: FunctionComponent<LogoProps> = ({ color, classNames = [], ...props }) => {
     return (
-        <div className={styles["logo__wrapper"]}>
+        <div className={cn(styles["logo__wrapper"], ...classNames)} {...props}>
             <Icons name="logo" className={
                 cn(styles["logo"], {
                   [styles["logo_white"]]: color === Color.white,

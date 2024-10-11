@@ -4,8 +4,23 @@
 	justify-content: center;
 	background-color: #343434;
 	border-radius: 5px;
+	transition: 0.5s ease;
 }
 
 .contact-btn svg {
 	fill: rgba(255, 255, 255, 0.6)
+}
+
+@media (hover: hover) {
+	.contact-btn:hover {
+		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+		transition: 0.5s ease;
+	}
+}
+
+@media (hover: none) {
+	.contact-btn:active {
+		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+		transition: 0.5s ease;
+	}
 }

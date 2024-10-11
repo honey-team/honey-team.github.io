@@ -5,8 +5,8 @@ import MemberSocials from "../MemberSocials/MemberSocials";
 import Icons from "../Icons/Icons";
 
 import styles from "./MemberCard.module.css";
-
 import { Member } from "../../utils/config_type_alias";
+
 
 type MemberCardProps = {
     member: Member;
