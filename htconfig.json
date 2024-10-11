@@ -1,94 +1,93 @@
 {
-  "favicon": {
-    "index": "/icons/favicon.ico",
-    "members": null,
-    "projects": null
-  },
-  "description": {
-    "index": "Honey Team - это сообщество программистов, разделяющих общие цели и интересы в области программирования. Мы предоставляем нашим членам место для общения и совместной работы над проектами. Наше видение заключается в создании благоприятной среды для программирования и совместной работы программистов.",
-    "members": null,
-    "projects": null
-  },
-  "titles": {
-    "index": "HoneyTeam 🍯",
-    "members": "Наши участники 👥",
-    "projects": "Наши проекты 📦",
-    "blog": "Наш блог ✍",
-    "error": "Ошибка 404 ⚠"
-  },
-  "og": {
-    "index": "/socials/opengraph.png",
-    "members": null,
-    "projects": null
-  },
-  "members": [
-    {
-      "gh": "bleudev",
-      "banner": "#0000ff",
-      "bio": "Синий",
-      "langs": ["py", "js", "cpp", "csh", "java", "lua", "unity", "godot", "unreal", "web", "react", "flutter", "qt", "db"],
-      "socials": {
-        "tg": "bleuuu1",
-        "ds": "907966263270207519"
-      },
-      "projects": ["DuplicateBot", "ufpy", "honey-team.github.io"]
+    "favicon": {
+        "index": "/icons/favicon.ico",
+        "members": null,
+        "projects": null
     },
-    {
-      "gh": "moontr3",
-      "bio": "日本の開発者",
-      "langs": ["py", "web", "qt", "lua", "unity", "cpp"],
-      "socials": {
-        "tg": "moontr3",
-        "ds": "698457845301248010",
-        "site": "https://moontr3.ru"
-      },
-      "projects": []
+    "description": {
+        "index": "Honey Team - это сообщество программистов, разделяющих общие цели и интересы в области программирования. Мы предоставляем нашим членам место для общения и совместной работы над проектами. Наше видение заключается в создании благоприятной среды для программирования и совместной работы программистов.",
+        "members": null,
+        "projects": null
     },
-    {
-      "gh": "mbutsk",
-      "banner": "#0052ff",
-      "bio": "Разработчик Telegram-ботов из Беларуси🤠",
-      "langs": ["py", "js"],
-      "socials": {
-        "tg": "mbutskch",
-        "ds": "558214919405830151",
-        "site": "https://mbutsk.xyz"
-      },
-      "projects": ["buckshot", "ufpy"]
+    "titles": {
+        "index": "HoneyTeam 🍯",
+        "members": "Наши участники 👥",
+        "projects": "Наши проекты 📦",
+        "blog": "Наш блог ✍",
+        "error": "Ошибка 404 ⚠"
     },
-    {
-      "gh": "TheHakerTech",
-      "bio": "Айхоп",
-      "langs": ["py"],
-      "socials": {
-        "tg": "hopTech"
-      },
-      "projects": ["ufpy"]
-    }
-  ],
-  "projects": [
-    {
-      "gh": "ufpy",
-      "image": "/images/projects/ufpy.png",
-      "description": "Библиотека на Python с множеством полезных функций",
-      "socials": {
-        "tg": "HoneyTeamC_bot",
-        "site": "https://honey-team.ru/ufpy-website"
-      }
+    "og": {
+        "index": "/socials/opengraph.png",
+        "members": null,
+        "projects": null
     },
-    {
-      "gh": "DuplicateBot",
-      "description": "Бот для дублирования сообщений из Telegram в Discord канал"
-    },
-    {
-      "gh": "honey-team.github.io",
-      "title": "Сайт",
-      "description": "Сайт на React, на котором отображаются участники и проекты команды"
-    },
-    {
-      "gh": "buckshot",
-      "title": "Buckshot bot",
-      "description": "Telegram-бот, имитирующий Buckshot Roulette"
-    }
-  ]
+    "members": [
+        {
+            "gh": "bleudev",
+            "banner": "#0000ff",
+            "bio": "Синий",
+            "langs": ["py", "js", "cpp", "csh", "java", "lua", "unity", "godot", "unreal", "web", "react", "flutter", "qt", "db"],
+            "socials": {
+                "tg": "bleuuu1",
+                "ds": "907966263270207519"
+            },
+            "projects": ["DuplicateBot", "ufpy", "honey-team.github.io"]
+        },
+        {
+            "gh": "moontr3",
+            "bio": "日本の開発者",
+            "langs": ["py", "web", "qt", "lua", "unity", "cpp"],
+            "socials": {
+                "tg": "moontr3",
+                "ds": "698457845301248010",
+                "site": "https://moontr3.ru"
+            }
+        },
+        {
+            "gh": "mbutsk",
+            "banner": "#0052ff",
+            "bio": "Разработчик Telegram-ботов из Беларуси🤠",
+            "langs": ["py", "js"],
+            "socials": {
+                "tg": "mbutskch",
+                "ds": "558214919405830151",
+                "site": "https://mbutsk.xyz"
+            },
+            "projects": ["buckshot", "ufpy"]
+        },
+        {
+            "gh": "TheHakerTech",
+            "bio": "Айхоп",
+            "langs": ["py"],
+            "socials": {
+                "tg": "hopTech"
+            },
+            "projects": ["ufpy"]
+        }
+    ],
+    "projects": [
+        {
+            "gh": "ufpy",
+            "image": "/images/projects/ufpy.png",
+            "description": "Библиотека на Python с множеством полезных функций",
+            "socials": {
+                "tg": "HoneyTeamC_bot",
+                "site": "https://honey-team.ru/ufpy-website"
+            }
+        },
+        {
+            "gh": "DuplicateBot",
+            "description": "Бот для дублирования сообщений из Telegram в Discord канал"
+        },
+        {
+            "gh": "honey-team.github.io",
+            "title": "Сайт",
+            "description": "Сайт на React, на котором отображаются участники и проекты команды"
+        },
+        {
+            "gh": "buckshot",
+            "title": "Buckshot bot",
+            "description": "Telegram-бот, имитирующий Buckshot Roulette"
+        }
+    ]
 }

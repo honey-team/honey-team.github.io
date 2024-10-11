@@ -39,7 +39,31 @@
 
 }
 
-.header__nav li {
+.header__nav__element {
 	list-style: none;
 	margin: 0;
+	transition: 0.5s ease;
 }
+
+@media (hover: hover) {
+	.header__nav__element:hover {
+		text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+		transition: 0.5s ease;
+	}
+	svg.header__nav__element:hover {
+		opacity: 0.8;
+		transition: 0.5s ease;
+	}
+}
+
+@media (hover: none) {
+	.header__nav__element:active {
+		text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+		transition: 0.5s ease;
+	}
+	svg.header__nav__element:active {
+		opacity: 0.8;
+		transition: 0.5s ease;
+	}
+}
+
