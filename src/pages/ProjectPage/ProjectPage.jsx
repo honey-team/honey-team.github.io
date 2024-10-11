@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../../htconfig.json";
-import HTHead, { Pages } from "../../components/HTHead/HTHead.jsx";
-import ErrorPage from "../ErrorPage/ErrorPage.jsx";
-import ProjectPageCard from "../../components/ProjectPageCard/ProjectPageCard.jsx";
+import HTHead, { Pages } from "../../components/HTHead/HTHead";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import ProjectPageCard from "../../components/ProjectPageCard/ProjectPageCard";
 import is_dev from "../../utils/dev";
 import styles from "./ProjectPage.module.css";
 

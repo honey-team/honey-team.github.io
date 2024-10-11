@@ -1,9 +1,9 @@
-import MemberCard from "../../components/MemberCard/MemberCard.jsx"
-import TitleSection from "../../components/TitleSection/TitleSection.jsx"
+import MemberCard from "../../components/MemberCard/MemberCard"
+import TitleSection from "../../components/TitleSection/TitleSection"
 import styles from "./MembersPage.module.css"
 // import file from "../../data.json"
 import { useEffect, useState } from "react"
-import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
+import HTHead, {Pages} from "../../components/HTHead/HTHead"
 
 import config from "../../../htconfig.json"
 

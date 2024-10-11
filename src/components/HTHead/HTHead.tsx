@@ -2,20 +2,27 @@ import { Helmet } from "react-helmet";
 import Route from "../../utils/links";
 import htconfig from "../../../htconfig.json";
 import Favicon from "react-favicon";
+import {FunctionComponent, ReactElement} from "react";
 
-export const Pages = {
-    index: 'index',
-    members: 'members',
-    projects: 'projects',
-    member: 'member',
-    project: 'project',
-    blog: 'blog',
-    post: 'post',
-    error: 'error'
+export enum Pages {
+    index = 'index',
+    members = 'members',
+    projects = 'projects',
+    member = 'member',
+    project = 'project',
+    blog = 'blog',
+    post = 'post',
+    error = 'error'
 }
 
-export default function HTHead({page, gh, id}) {
-    const urls = [
+type HTheadProps = {
+    page: Pages;
+    gh?: string | null;
+    id?: number | null;
+};
+
+const HTHead: FunctionComponent<HTheadProps> = ({page, gh = null, id = null}) => {
+    let url_array = [
         [Pages.index, '/'],
         [Pages.members, '/members'],
         [Pages.member, `/members/${gh}`],
@@ -24,12 +31,12 @@ export default function HTHead({page, gh, id}) {
         [Pages.blog, '/blog'],
         [Pages.post, `/blog/${id}`],
         [Pages.error, 'undefined']
-    ];
-    let url = urls.find((value) => page === value[0]);
-    if (url) url = url[1];
-
-    if (!url) {
-        return console.log('404: HTHead: You used unsupported page: %s\n', page);
+    ].find((value) => page === value[0]);
+    if (url_array)
+        var url = url_array[1];
+    else {
+        console.log('404: HTHead: You used unsupported page: %s\n', page);
+        return <></>;
     }
 
     const page_title = gh ? gh : htconfig.titles[page];
@@ -71,7 +78,7 @@ export default function HTHead({page, gh, id}) {
                 <meta property="og:image:width" content="1000"/>
                 <meta property="og:image:height" content="500"/>
                 <meta name="twitter:card" content="summary_large_image"/>
-                <meta property="twitter:domain" content={Route('/')}/>
+                <meta property="twitter:domain" content={Route()}/>
                 {url != 'undefined' && (
                     <meta property="twitter:url" content={url}/>
                 )}
@@ -82,3 +89,5 @@ export default function HTHead({page, gh, id}) {
         </>
     );
 }
+
+export default HTHead;

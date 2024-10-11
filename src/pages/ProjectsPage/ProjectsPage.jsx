@@ -1,8 +1,8 @@
 import styles from "./ProjectsPage.module.css"
-import TitleSection from "../../components/TitleSection/TitleSection.jsx"
+import TitleSection from "../../components/TitleSection/TitleSection"
 import ProjectCard from "../../components/ProjectCard/ProjectCard"
 import { useEffect, useState } from "react"
-import HTHead, {Pages} from "../../components/HTHead/HTHead.jsx"
+import HTHead, {Pages} from "../../components/HTHead/HTHead"
 import config from "../../../htconfig.json"
 
 function ProjectsPage() {

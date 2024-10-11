@@ -5,10 +5,10 @@ import Icons from "../../components/Icons/Icons";
 import styles from "./MemberPage.module.css";
 import Title from "../../components/Title/Title";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import HTHead, { Pages } from "../../components/HTHead/HTHead.jsx";
+import HTHead, { Pages } from "../../components/HTHead/HTHead";
 import data from "../../../htconfig.json";
-import MemberSocials from "../../components/MemberSocials/MemberSocials.jsx";
-import ErrorPage from "../ErrorPage/ErrorPage.jsx";
+import MemberSocials from "../../components/MemberSocials/MemberSocials";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 function MemberPage() {
   const [members, setMembers] = useState([]);
