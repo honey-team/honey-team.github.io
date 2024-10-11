@@ -7,6 +7,8 @@ import ProjectPageCard from "../../components/ProjectPageCard/ProjectPageCard";
 import is_dev from "../../utils/dev";
 import styles from "./ProjectPage.module.css";
 
+import { Member, Project } from "../../utils/config_type_alias";
+
 export default function ProjectPage() {
     const [projects, setProjects] = useState([]);
     const [members, setMembers] = useState([]);
@@ -16,31 +18,22 @@ export default function ProjectPage() {
     const params = useParams();
 
     const getProjects = () => {
-        if (data.projects) {
-            setProjects(data.projects);
-        } else setError(true);
+        if (data.projects) setProjects(data.projects);
+        else setError(true);
     }
 
-    const getMembers = () => {
-        if (data.members) {
-            setMembers(data.members);
-        }
-    }
+    const getMembers = () => { if (data.members) setMembers(data.members); }
 
     const getCurrentProject = () => {
-        const project = projects.find((project) => project.gh === params.name);
-        setCurrentProject(project);
-
-        if (currentProject) {
-            setError(false);
-        } else setError(true);
+        setCurrentProject(projects.find((project: Project) => project.gh === params.name));
+        if (currentProject) setError(false);
+        else setError(true);
     }
 
     const getProjectMembers = () => {
         let res = [];
-
-        members.forEach((v) => {
-            if (v.projects?.includes(currentProject.gh))
+        members.forEach((v: Member) => {
+            if (v.projects?.includes(currentProject?.gh))
                 res.push(v);
         });
         setProjectMembers(res);
@@ -57,7 +50,7 @@ export default function ProjectPage() {
     }, [projects, currentProject]);
     useEffect(() => {
         if (currentProject) getProjectMembers();
-    }, [members, currentProject])
+    }, [members, currentProject]);
 
     return (
         <>

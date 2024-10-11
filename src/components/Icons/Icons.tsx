@@ -1,5 +1,13 @@
+import { FunctionComponent } from "react";
 
-export default function Icons({name, dh = 0, ...props}) {
+type IconsProps = {
+	name: string;
+	dh?: number;
+	// Other props
+	[key: string]: any;
+};
+
+const Icons: FunctionComponent<IconsProps> = ({name, dh = 0, ...props}) => {
 	const [base, secondary, bg] = ["#939393", "#bfbfbf", "#272727"];
 	switch (name) {
 		// Logo
@@ -154,3 +162,5 @@ export default function Icons({name, dh = 0, ...props}) {
 			);
 	}
 }
+
+export default Icons;

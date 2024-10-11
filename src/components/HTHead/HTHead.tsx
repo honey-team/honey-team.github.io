@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import Route from "../../utils/links";
 import htconfig from "../../../htconfig.json";
 import Favicon from "react-favicon";
-import {FunctionComponent, ReactElement} from "react";
+import {FunctionComponent} from "react";
 
 export enum Pages {
     index = 'index',
@@ -17,25 +17,33 @@ export enum Pages {
 
 type HTheadProps = {
     page: Pages;
-    gh?: string | null;
-    id?: number | null;
+    gh?: string;
+    id?: number;
 };
 
 const HTHead: FunctionComponent<HTheadProps> = ({page, gh = null, id = null}) => {
-    let url_array = [
-        [Pages.index, '/'],
-        [Pages.members, '/members'],
-        [Pages.member, `/members/${gh}`],
-        [Pages.projects, '/projects'],
-        [Pages.project, `/projects/${gh}`],
-        [Pages.blog, '/blog'],
-        [Pages.post, `/blog/${id}`],
-        [Pages.error, 'undefined']
-    ].find((value) => page === value[0]);
-    if (url_array)
-        var url = url_array[1];
-    else {
-        console.log('404: HTHead: You used unsupported page: %s\n', page);
+    let url = {
+        [Pages.index]: '/',
+        [Pages.members]: '/members',
+        [Pages.member]: `/members/${gh}`,
+        [Pages.projects]: '/projects',
+        [Pages.project]: `/projects/${gh}`,
+        [Pages.blog]: '/blog',
+        [Pages.post]: `/blog/${id}`,
+        [Pages.error]: 'undefined'
+    }[page]
+    // let url_array = [
+    //     [Pages.index, '/'],
+    //     [Pages.members, '/members'],
+    //     [Pages.member, `/members/${gh}`],
+    //     [Pages.projects, '/projects'],
+    //     [Pages.project, `/projects/${gh}`],
+    //     [Pages.blog, '/blog'],
+    //     [Pages.post, `/blog/${id}`],
+    //     [Pages.error, 'undefined']
+    // ].find((value) => page === value[0]);
+    if (!url) {
+        console.warn('404: HTHead: You used unsupported page: %s\n', page);
         return <></>;
     }
 
