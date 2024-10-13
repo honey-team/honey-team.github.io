@@ -13,14 +13,14 @@
 
 @media (hover: hover) {
 	.contact-btn:hover {
-		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
 		transition: 0.5s ease;
 	}
 }
 
 @media (hover: none) {
 	.contact-btn:active {
-		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
 		transition: 0.5s ease;
 	}
 }
