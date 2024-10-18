@@ -10,6 +10,7 @@ import config from "../../../htconfig.json";
 export default function ProjectsPage(): ReactElement {
     const [projects, setProjects] = useState([]);
     const [error, setError] = useState(false);
+    const [search, setSearch] = useState("");
     const getProjects = () => {
         if (config.projects) {
             setProjects(config.projects.filter((project) => !project.gh.includes("/")));
@@ -23,7 +24,7 @@ export default function ProjectsPage(): ReactElement {
     return (
         <>
             <HTHead page={Pages.projects}/>
-            <TitleSection title="Проекты"/>
+            <TitleSection title="Проекты" value={search} setValue={setSearch}/>
             <section className={styles["list-section"]}>
                 <div className="wrapper">
                     {!error && (
@@ -34,6 +35,7 @@ export default function ProjectsPage(): ReactElement {
                             )}
                         </div>
                     )}
+                    {search}
                 </div>
             </section>
         </>
