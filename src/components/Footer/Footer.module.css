@@ -1,38 +1,59 @@
 .footer {
-	width: 100%;
-	background-color: var(--black-gray-color);
-	padding: 45px 0 30px 0;
+    width: 100%;
+    background-color: var(--black-gray-color);
+    padding: 45px 0 30px 0;
 }
 
 .wrapper {
-	min-width: 320px;
-	max-width: 813px;
-	margin: 0 auto;
+    min-width: 320px;
+    max-width: 813px;
+    margin: 0 auto;
 }
 
 .content {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navigation {
-	font-size: 16px;
-	font-weight: 500;
-	color: rgba(255, 255, 255, 0.53);
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.53);
 }
 
 .navigation li {
-	list-style: none;
+    list-style: none;
 }
 
 .navigation li:first-child {
-	margin-bottom: 10px;
-	color: var(--text-color-white);
-	font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color-white);
+    font-weight: 700;
 }
 
 .right-part {
-	display: flex;
-	gap: 130px;
+    display: flex;
+    gap: 130px;
+}
+
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+    .left-part{
+        padding-bottom: 45px;
+    }
+
+}
+
+/* Ноутбуки */
+@media (min-width: 769px) and (max-width: 1280px) {
+
+}
+
+/* Десктопы */
+@media (min-width: 1281px) {
+    /* Стили для десктопов */
 }

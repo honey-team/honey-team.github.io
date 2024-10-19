@@ -44,3 +44,44 @@
   display: flex;
   gap: 15px;
 }
+
+
+@media  (max-width: 768px) {
+  .buttons{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+  }
+  .text {
+    text-align: center;
+  }
+
+  .buttons p{
+    font-size: 5vw;
+  }
+
+  .logo{
+    margin: 20px 0;
+  }
+  .header{
+    font-size: 12vw;
+  }
+  .main-section{
+    padding: 10px 0;
+  }
+  .main-section__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Ноутбуки */
+@media (min-width: 769px) and (max-width: 1280px) {
+
+}
+
+/* Десктопы */
+@media (min-width: 1281px) {
+  /* Стили для десктопов */
+}

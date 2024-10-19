@@ -24,4 +24,35 @@
 .images-wrapper {
 	display: flex;
 	gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+@media  (max-width: 768px) {
+  .image {
+    width: 90vw;
+    height: auto;
+  }
+  .fourth-title {
+    font-size: 12vw;
+    padding-bottom: 45px;
+    text-align: center;
+  }
+  .images-wrapper img {
+    width: 80px;
+    height: auto;
+  }
+
+}
+
+/* Ноутбуки */
+@media (min-width: 769px) and (max-width: 1280px) {
+
+}
+
+/* Десктопы */
+@media (min-width: 1281px) {
+  /* Стили для десктопов */
 }

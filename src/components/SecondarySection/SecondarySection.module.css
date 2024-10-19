@@ -31,3 +31,27 @@
 .secondary-title {
 	transform: translateY(-20px);
 }
+
+
+@media  (max-width: 768px) {
+	.image {
+		width: 80vw;
+		height: auto;
+	}
+	.secondary-title {
+		font-size: 12vw;
+		padding-bottom: 25px;
+		text-align: center;
+	}
+
+}
+
+/* Ноутбуки */
+@media (min-width: 769px) and (max-width: 1280px) {
+
+}
+
+/* Десктопы */
+@media (min-width: 1281px) {
+	/* Стили для десктопов */
+}

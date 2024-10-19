@@ -28,13 +28,13 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project, modificator
             {is_dev.project_page && (
                 <Link to={`/projects/${project.gh}`}>
                     <div className={styles["project-card__img"]}>
-                        <img src={project.image ? project.image : '/images/projects/default.png'}/>
+                        <img src={project.image ? project.image : 'images/projects/default.png'}/>
                     </div>
                 </Link>
             )}
             {!is_dev.project_page && (
                 <div className={styles["project-card__img"]}>
-                    <img src={project.image ? project.image : '/images/projects/default.png'}/>
+                    <img src={project.image ? project.image : 'images/projects/default.png'}/>
                 </div>
             )}
 
