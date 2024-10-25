@@ -14,6 +14,8 @@ type MemberCardProps = {
     [key: string]: any;
 };
 
+const max_langs_in_line: number = 8;
+
 const MemberCard: FunctionComponent<MemberCardProps> = ({ member, ...props }) => {
     return (
         <div className={styles["card"]} {...props}>
@@ -27,7 +29,17 @@ const MemberCard: FunctionComponent<MemberCardProps> = ({ member, ...props }) =>
             </Link>
             <div className={styles["skills"]}>
                 {member.langs?.map((item, index) => {
-                    return <Icons name={item} key={index} />;
+                    if (index < max_langs_in_line-1)
+                        return <Icons name={item} key={index} />;
+                    else if (member.langs?.length === max_langs_in_line)
+                        return <Icons name={item} key={index} />;
+                    else if (index === max_langs_in_line-1)
+                        return (
+                            <div className={styles["plus_skills"]}>
+                                <p>+{member.langs?.length - max_langs_in_line}</p>
+                            </div>
+                        )
+
                 })}
             </div>
             <div className={styles["contacts"]}>
