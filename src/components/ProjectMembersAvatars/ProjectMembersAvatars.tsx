@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import cn from "classnames";
 
 import styles from "./ProjectMemberAvatars.module.css";
+import { Link } from "react-router-dom";
 
 type ProjectMemberAvatarsProps = {
     members: string[];
@@ -12,6 +13,7 @@ type ProjectMemberAvatarsProps = {
 };
 
 const ProjectMembersAvatars: FunctionComponent<ProjectMemberAvatarsProps> = ({ members, with_text = false, classNames = [], ...props }) => {
+    if (!members) return <></>;
     var _id = '';
     if (with_text)
         _id = styles[`avtext${members.length < 3 ? members.length : 3}`];
@@ -24,10 +26,13 @@ const ProjectMembersAvatars: FunctionComponent<ProjectMemberAvatarsProps> = ({ m
                         (v, i) => {
                             if (i < 3)
                                 return (
-                                    <img src={`https://avatars.githubusercontent.com/${v}`}
-                                         className={styles[`mimg${i+1}`]}
-                                         id={styles['mimg']}
-                                    />
+                                    <Link to={`/members/${v}`}>
+                                        <img src={`https://avatars.githubusercontent.com/${v}`}
+                                            className={styles[`mimg${i+1}`]}
+                                            id={styles['mimg']}
+                                            key={i}
+                                        />
+                                    </Link>
                                 );
                         }
                     )}

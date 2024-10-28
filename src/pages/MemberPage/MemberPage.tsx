@@ -2,20 +2,22 @@ import { ReactElement, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DecorativeLine from "../../components/DecorativeLine/DecorativeLine";
 import Icons from "../../components/Icons/Icons";
+
 import styles from "./MemberPage.module.css";
+import projects_styles from "../ProjectsPage/ProjectsPage.module.css";
+
 import Title from "../../components/Title/Title";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import HTHead, { Pages } from "../../components/HTHead/HTHead";
 import data from "../../../htconfig.json";
 import MemberSocials from "../../components/MemberSocials/MemberSocials";
 import ErrorPage from "../ErrorPage/ErrorPage";
-import { Member, Project } from "../../utils/config_type_alias";
+import { Member } from "../../utils/config_type_alias";
+import { project_card } from "../../utils/get";
 
 export default function MemberPage(): ReactElement {
     const [members, setMembers] = useState([]);
     const [error, setError] = useState(true);
     const [currentMember, setCurrentMember] = useState();
-    const [memberProjects, setMemberProjects] = useState([]);
     const params = useParams();
 
     const getMembers = () => {
@@ -34,21 +36,8 @@ export default function MemberPage(): ReactElement {
         else setError(true);
     };
 
-    const getProjects = () => {
-        let projects = [];
-        if (currentMember?.projects) {
-            projects = currentMember.projects?.map((memberProject: string) =>
-                data.projects.find(
-                (currentProject) => currentProject.gh === memberProject
-                )
-            );
-        }
-        setMemberProjects(projects);
-    };
-
     useEffect(() => getMembers(), []);
     useEffect(() => getCurrentMember(), [members, currentMember]);
-    useEffect(() => { if (currentMember) getProjects(); }, [currentMember]);
 
     if (!error) {
         var s = { backgroundColor: "#262626" };
@@ -103,13 +92,11 @@ export default function MemberPage(): ReactElement {
                             <Title className={styles["projects-section__title"]}>
                                 Проекты
                             </Title>
-                            <div className={styles["projects-wrapper"]}>
-                                {memberProjects?.length > 0 &&
-                                    memberProjects?.map((project, index) => {
-                                        return <ProjectCard project={project} key={index} />;
-                                    })
+                            <div className={projects_styles["content"]}>
+                                {currentMember.projects?.length > 0 &&
+                                    currentMember.projects?.map((project, index) => project_card(project, index))
                                 }
-                                {memberProjects?.length === 0 && (
+                                {currentMember.projects?.length === 0 && (
                                     <p>У этого участника еще нет проектов</p>
                                 )}
                             </div>

@@ -2,8 +2,6 @@ import { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 
-import Button, { Modificator } from "../Button/Button";
-
 import styles from "./ProjectCard.module.css";
 
 import { Project } from "../../utils/config_type_alias";
@@ -24,25 +22,25 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project, members, mo
         return <></>;
     }
 
+    let _title = project.title ? project.title : project.gh;
+    let image_obj = (
+        <div className={styles["project-card__img"]}>
+            <img src={project.image ? project.image : '/images/projects/default.png'}/>
+        </div>
+    );
+
     return (
         <div className={cn(styles["project-card"], {
                           [styles["project-card_small"]]: modificator === "small",
                         })}>
             {is_dev.project_page && (
                 <Link to={`/projects/${project.gh}`}>
-                    <div className={styles["project-card__img"]}>
-                        <img src={project.image ? project.image : '/images/projects/default.png'}/>
-                    </div>
+                    {image_obj}              
                 </Link>
             )}
-            {!is_dev.project_page && (
-                <div className={styles["project-card__img"]}>
-                    <img src={project.image ? project.image : '/images/projects/default.png'}/>
-                </div>
-            )}
+            {!is_dev.project_page && image_obj}
 
             <div className={styles["project-card__info"]}>
-                {/* <div className={styles["project-card__fill"]}/> */}
                 <div className={styles["project-card__title"]}>
                     {is_dev.project_page && (
                     <Link to={`/projects/${project.gh}`}>
@@ -50,14 +48,10 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project, members, mo
                         <ProjectMembersAvatars members={members} classNames={[styles["project-card__members"]]}/>
                     </Link>
                     )}
-                    {!is_dev.project_page && (
-                        <>
-                            {project.title ? project.title : project.gh}
-                        </>
-                    )}
+                    {!is_dev.project_page && <p>{_title}</p>}
                 </div>
                 <div className={styles["project-card__description"]}>
-                    {project.description}
+                    {project.description ? project.description : 'Нет описания'}
                 </div>
                 <div className={styles["socials"]}>
                     <MemberSocials socials={{gh: project.gh.includes('/') ? project.gh : `honey-team/${project.gh}`, ...project.socials}}/>

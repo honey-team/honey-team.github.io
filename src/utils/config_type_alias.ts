@@ -29,9 +29,9 @@ export enum Langs {
 };
 
 export type Socials = {
-    tg: string,
-    ds: string,
-    site: string,
+    tg?: string,
+    ds?: string,
+    site?: string,
     gh?: string
 }
 

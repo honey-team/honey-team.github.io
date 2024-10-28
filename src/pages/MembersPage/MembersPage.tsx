@@ -18,7 +18,7 @@ export default function MembersPage(): ReactElement {
             setError(false);
         } else setError(true);
     };
-    useEffect(() => getMembers(), [search]);
+    useEffect(() => getMembers(), [members, search]);
 
     return (
         <>

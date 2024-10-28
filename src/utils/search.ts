@@ -3,7 +3,7 @@ import { Member, Project } from "./config_type_alias";
 export function SearchFor(
     array: Member[] | Project[],
     query: string,
-    search_in: (v: {[key: string]: string}) => string = (v) => v.gh)
+    search_in: (v: {[key: string]: string}) => string = (v) => v.gh): Member[] | Project[] | never[]
 {
     if (!query)
         return array;

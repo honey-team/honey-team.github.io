@@ -11,7 +11,6 @@
 .project-card__img {
 	width: 100%;
 	height: 235px;
-	background-color: red;
 }
 
 .project-card__img img {
@@ -44,31 +43,34 @@
 	display: grid;
 }
 
-.project-card__title a p {
-	/* position: relative; */
-	width: 100px;
+.project-card__title p {
+	width: 150px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 	grid-column: 1/2;
 }
 
 .project-card__members {
 	position: relative;
-	/* left: 50px; */
-	right: -25px;
+	left: 0px;
 	top: 7px;
-	/* width: 30px; */
 	grid-column: 2/2;
 }
 
 .project-card__description {
+	width: 202px;
+	height: 30px;
 	font-size: 12px;
 	font-weight: 500;
 	color: rgba(255, 255, 255, 0.8);
-	grid-row: 2/3;
 	top: 20px;
 	position: relative;
 	line-height: 115%;
 	grid-column: 2/3;
-	width: 202px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	grid-row: 2/3;
 }
 
 
@@ -83,15 +85,6 @@
 	margin-top: 40px;
 	grid-column: 2/3;
 }
-
-/* .contact-btn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #343434;
-	border-radius: 5px;
-	height: 45px;
-} */
 
 @media (hover: hover) {
 	.project-card:hover {
