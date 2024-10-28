@@ -8,15 +8,18 @@ import styles from "./ProjectCard.module.css";
 
 import { Project } from "../../utils/config_type_alias";
 import is_dev from "../../utils/dev";
+import MemberSocials from "../MemberSocials/MemberSocials";
+import ProjectMembersAvatars from "../ProjectMembersAvatars/ProjectMembersAvatars";
 
 type ProjectCardProps = {
     project: Project | undefined;
+    members: string[];
     modificator?: "small";
     // Other props
     [key: string]: any;
 };
 
-const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project, modificator }) => {
+const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project, members, modificator }) => {
     if (!project) {
         return <></>;
     }
@@ -39,12 +42,12 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project, modificator
             )}
 
             <div className={styles["project-card__info"]}>
-                <div className={styles["project-card__gradient"]}/>
-                <div className={styles["project-card__fill"]}/>
+                {/* <div className={styles["project-card__fill"]}/> */}
                 <div className={styles["project-card__title"]}>
                     {is_dev.project_page && (
                     <Link to={`/projects/${project.gh}`}>
-                        {project.title ? project.title : project.gh}
+                        <p>{project.title ? project.title : project.gh}</p>
+                        <ProjectMembersAvatars members={members} classNames={[styles["project-card__members"]]}/>
                     </Link>
                     )}
                     {!is_dev.project_page && (
@@ -56,13 +59,8 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project, modificator
                 <div className={styles["project-card__description"]}>
                     {project.description}
                 </div>
-                <div className={styles["project-card__button"]}>
-                        <Button
-                            modificator={Modificator.flat_orange}
-                            url={project.gh.includes("/") ? `https://github.com/${project.gh}` : `https://github.com/honey-team/${project.gh}`}
-                        >
-                            GitHub
-                        </Button>
+                <div className={styles["socials"]}>
+                    <MemberSocials socials={{gh: project.gh.includes('/') ? project.gh : `honey-team/${project.gh}`, ...project.socials}}/>
                 </div>
             </div>
         </div>

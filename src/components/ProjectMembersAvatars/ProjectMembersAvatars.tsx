@@ -17,7 +17,7 @@ const ProjectMembersAvatars: FunctionComponent<ProjectMemberAvatarsProps> = ({ m
         _id = styles[`avtext${members.length < 3 ? members.length : 3}`];
 
     return (
-        <div className={cn(styles["avatars_row"], ...classNames)} {...props}>  
+        <div className={cn(styles["avatars_row"], ...classNames)} id={styles[`row${members.length < 3 ? members.length : 3}`]} {...props}>  
             {members.length != 0 && (
                 <>
                     {members.map(

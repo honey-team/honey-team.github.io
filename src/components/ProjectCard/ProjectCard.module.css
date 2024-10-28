@@ -1,6 +1,6 @@
 .project-card {
-	width: 350px;
-	height: 500px;
+	width: 236px;
+	height: 362px;
 	background-color: #272727;
 	border-radius: 15px;
 	overflow: hidden;
@@ -10,8 +10,8 @@
 
 .project-card__img {
 	width: 100%;
-	height: 350px;
-	
+	height: 235px;
+	background-color: red;
 }
 
 .project-card__img img {
@@ -20,51 +20,78 @@
 	height: 100%;
 }
 
-.project-card__gradient {
-	grid-row: 1/2;
-	grid-column: 1/-1;
-	background-image: linear-gradient(to top, rgba(39, 39, 39, 1), rgba(39,39,39, 0));
-}
-
-
 .project-card__info {
 	width: 100%;
-	height: 180px;
+	height: 127px;
 	position: absolute;
-	bottom: 0px;
+	bottom: 5px;
 	z-index: 200;
 	display: grid;
 	grid-template-rows: 20px 15px 30px 8px 33px 12px 48px 14px;
 	grid-template-columns: 18px 314px 18px;
 }
 
-.project-card__fill {
-	background-color: #272727;
-	grid-row: 2/3;
-	grid-column: 1/-1;
+.project-card__title {
+	font-size: 24px;
+	font-weight: 700;
+	grid-row: 1/3;
+	grid-column: 2/3;
+	width: 200px;
 }
 
-.project-card__title {
-	font-size: 32px;
-	font-weight: 700;
-	grid-row: 3/4;
-	grid-column: 2/3;
-	transform: translateY(-9px)
+.project-card__title a {
+	width: 100%;
+	display: grid;
+}
+
+.project-card__title a p {
+	/* position: relative; */
+	width: 100px;
+	grid-column: 1/2;
+}
+
+.project-card__members {
+	position: relative;
+	/* left: 50px; */
+	right: -25px;
+	top: 7px;
+	/* width: 30px; */
+	grid-column: 2/2;
 }
 
 .project-card__description {
-	font-size: 16px;
+	font-size: 12px;
 	font-weight: 500;
 	color: rgba(255, 255, 255, 0.8);
-	grid-row: 5/6;
+	grid-row: 2/3;
+	top: 20px;
+	position: relative;
 	line-height: 115%;
+	grid-column: 2/3;
+	width: 202px;
+}
+
+
+.socials {
+	width: 202px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+	grid-auto-flow: column;
+	grid-gap: 10px;
+	justify-content: center;
+	grid-row: 3/3;
+	margin-top: 40px;
 	grid-column: 2/3;
 }
 
-.project-card__button {
-	grid-row: 7/8;
-	grid-column: 2/3;
-}
+/* .contact-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #343434;
+	border-radius: 5px;
+	height: 45px;
+} */
 
 @media (hover: hover) {
 	.project-card:hover {

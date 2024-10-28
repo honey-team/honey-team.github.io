@@ -63,6 +63,12 @@
                 "tg": "hopTech"
             },
             "projects": ["ufpy"]
+        },
+        {
+            "gh": "Vampika",
+            "bio": "Вампика",
+            "langs": ["js", "web"],
+            "projects": ["honey-team.github.io"]
         }
     ],
     "projects": [

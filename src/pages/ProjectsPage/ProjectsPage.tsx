@@ -8,9 +8,13 @@ import {SearchFor, GetSearchText} from "../../utils/search";
 
 import styles from "./ProjectsPage.module.css";
 import config from "../../../htconfig.json";
+import { Member } from "../../utils/config_type_alias";
 
 export default function ProjectsPage(): ReactElement {
     const [projects, setProjects] = useState([]);
+    // var members: {[project_gh: string]: string[]} = {}
+    const [members, setMembers] = useState([]);
+    const [projectMembers, setProjectMembers]: [{[project_gh: string]: string[]}, (v: {[project_gh: string]: string[]}) => void] = useState({});
     const [error, setError] = useState(false);
     const [search, setSearch] = useState("");
     useEffect(() => {
@@ -20,7 +24,25 @@ export default function ProjectsPage(): ReactElement {
         } else setError(true);
     }, [projects]);
 
-    return (
+    useEffect(() => {
+        if (config.members) {
+            setMembers(config.members);
+            setError(false);
+        } else setError(true);
+    }, [members]);
+
+    useEffect(() => {
+        let pms: {[pgh: string]: string[]} = {};
+        members.forEach((m: Member) => {
+            m.projects?.forEach((p) => {
+                if (!pms[p])
+                    pms[p] = [];
+                pms[p].push(m.gh);
+            });
+        });
+        setProjectMembers(pms);
+    }, [projects, members, projectMembers]);
+    return (                                                                                                                                                                                                                    
         <>
             <HTHead page={Pages.projects}/>
             <TitleSection title="Проекты" value={search} setValue={setSearch}/>
@@ -33,7 +55,7 @@ export default function ProjectsPage(): ReactElement {
                             </p>
                             <div className={styles["content"]}>
                                 {SearchFor(projects, search, (v) => v.title ? v.title : v.gh).map((project, index) => {
-                                    return <ProjectCard project={project} key={index}/>;
+                                    return <ProjectCard project={project} key={index} members={projectMembers[project.gh] ? projectMembers[project.gh] : []}/>;
                                 }
                                 )}
                             </div>

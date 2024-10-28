@@ -21,9 +21,20 @@
     z-index: 1;
 }
 
+#row1 {
+    width: 25px;
+}
+
+#row2 {
+    width: 35px;
+}
+
+#row3 {
+    width: 50px;
+}
+
 .avatars_row {
-	display: flex;
-    width: 500px;
+	display: inline-flex;
 }
 
 .avatars_text {
