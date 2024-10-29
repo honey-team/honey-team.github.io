@@ -45,6 +45,7 @@ export default function ProjectsPage(): ReactElement {
                             </div>
                         </>
                     )}
+                    {search}
                 </div>
             </section>
         </>
