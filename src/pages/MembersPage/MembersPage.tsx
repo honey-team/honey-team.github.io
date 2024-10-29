@@ -6,6 +6,7 @@ import MemberCard from "../../components/MemberCard/MemberCard";
 
 import config from "../../../htconfig.json";
 import styles from "./MembersPage.module.css";
+
 import { GetSearchText, SearchFor } from "../../utils/search";
 
 export default function MembersPage(): ReactElement {

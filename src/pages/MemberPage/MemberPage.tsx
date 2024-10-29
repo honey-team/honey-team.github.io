@@ -13,6 +13,7 @@ import MemberSocials from "../../components/MemberSocials/MemberSocials";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import { Member } from "../../utils/config_type_alias";
 import { project_card } from "../../utils/get";
+import Skills from "../../components/Skills/Skills";
 
 export default function MemberPage(): ReactElement {
     const [members, setMembers] = useState([]);
@@ -78,9 +79,10 @@ export default function MemberPage(): ReactElement {
                             {currentMember?.bio && (
                                 <p className={styles["bio"]}>{currentMember.bio} ・</p>
                             )}
-                            {currentMember.langs?.map((lang: string) => {
+                            {/* {currentMember.langs?.map((lang: string) => {
                                 return <Icons name={lang} key={lang} />;
-                            })}
+                            })} */}
+                            {currentMember.langs && <Skills skills={currentMember.langs}/>}
                         </div>
                         <div className={styles["contacts"]}>
                             <MemberSocials socials={currentMember.socials}/>

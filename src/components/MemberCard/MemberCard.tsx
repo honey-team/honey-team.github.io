@@ -6,6 +6,7 @@ import Icons from "../Icons/Icons";
 
 import styles from "./MemberCard.module.css";
 import { Member } from "../../utils/config_type_alias";
+import Skills from "../Skills/Skills";
 
 
 type MemberCardProps = {
@@ -28,19 +29,7 @@ const MemberCard: FunctionComponent<MemberCardProps> = ({ member, ...props }) =>
                 <p className={styles["title"]}>{member.gh}</p>
             </Link>
             <div className={styles["skills"]}>
-                {member.langs?.map((item, index) => {
-                    if (index < max_langs_in_line-1)
-                        return <Icons name={item} key={index} />;
-                    else if (member.langs?.length === max_langs_in_line)
-                        return <Icons name={item} key={index} />;
-                    else if (index === max_langs_in_line-1)
-                        return (
-                            <div className={styles["plus_skills"]}>
-                                <p>+{member.langs?.length - max_langs_in_line}</p>
-                            </div>
-                        )
-
-                })}
+                {member.langs && <Skills skills={member.langs}/>}
             </div>
             <div className={styles["contacts"]}>
                 <MemberSocials socials={{gh: member.gh, ...member.socials}} />
