@@ -36,7 +36,7 @@
         {
             "gh": "moontr3",
             "bio": "日本の開発者",
-            "langs": ["py", "web", "qt", "lua", "unity", "cpp", "design"],
+            "langs": ["py", "dsbots", "design", "web", "tgbots", "qt", "lua", "unity", "cpp"],
             "socials": {
                 "tg": "moontr3",
                 "ds": "698457845301248010",
