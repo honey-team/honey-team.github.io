@@ -92,10 +92,3 @@
 	font-size: 48px;
 	margin-bottom: 15px;
 }
-
-.projects-wrapper {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, 350px);
-	grid-gap: 20px;
-	justify-items: center;
-}

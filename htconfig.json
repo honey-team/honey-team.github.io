@@ -26,7 +26,7 @@
             "gh": "bleudev",
             "banner": "#0000ff",
             "bio": "Синий",
-            "langs": ["py", "js", "cpp", "csh", "java", "lua", "unity", "godot", "unreal", "web", "react", "flutter", "qt", "db"],
+            "langs": ["py", "js", "cpp", "csh", "java", "lua", "unity", "godot", "unreal", "web", "react", "flutter", "qt", "db", "design", "dsbots", "tgbots"],
             "socials": {
                 "tg": "bleuuu1",
                 "ds": "907966263270207519"
@@ -36,7 +36,7 @@
         {
             "gh": "moontr3",
             "bio": "日本の開発者",
-            "langs": ["py", "web", "qt", "lua", "unity", "cpp"],
+            "langs": ["py", "web", "qt", "lua", "unity", "cpp", "design"],
             "socials": {
                 "tg": "moontr3",
                 "ds": "698457845301248010",
@@ -47,7 +47,7 @@
             "gh": "mbutsk",
             "banner": "#0052ff",
             "bio": "Разработчик Telegram-ботов из Беларуси🤠",
-            "langs": ["py", "js"],
+            "langs": ["py", "js", "tgbots"],
             "socials": {
                 "tg": "mbutskch",
                 "ds": "558214919405830151",
@@ -56,13 +56,25 @@
             "projects": ["buckshot", "ufpy"]
         },
         {
-            "gh": "TheHakerTech",
+            "gh": "TheAihopGG",
             "bio": "Айхоп",
             "langs": ["py"],
             "socials": {
                 "tg": "hopTech"
             },
             "projects": ["ufpy"]
+        },
+        {
+            "gh": "Vampika",
+            "bio": "Вампика",
+            "langs": ["js", "web"],
+            "projects": ["honey-team.github.io"]
+        },
+        {
+            "gh": "n0n1m",
+            "bio": "Ноним",
+            "langs": ["py", "dsbots"],
+            "projects": ["ForwardBot"]
         }
     ],
     "projects": [
@@ -88,6 +100,10 @@
             "gh": "buckshot",
             "title": "Buckshot bot",
             "description": "Telegram-бот, имитирующий Buckshot Roulette"
+        },
+        {
+            "gh": "ForwardBot",
+            "description": "Бот для пересылки сообщений в Discord"
         }
     ]
 }

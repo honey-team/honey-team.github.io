@@ -6,31 +6,8 @@ import MemberCard from "../../components/MemberCard/MemberCard";
 
 import config from "../../../htconfig.json";
 import styles from "./MembersPage.module.css";
-import { Member } from "../../utils/config_type_alias";
 
-function getCorrectWordMembers(n: number): string {
-    if (n % 10 == 1 && Math.floor(n % 100 / 10) != 1)
-        return "участник";
-    else if ([2, 3, 4].includes(n % 10) && Math.floor(n % 100 / 10) != 1)
-        return "участника";
-
-    return "участников"
-}
-
-function getSearchText(n: number, search: string): string {
-    if (n == 0)
-        return `Не найдено ни одного участника, содержащего в нике ${search}`;
-
-    let s = (n % 10 == 1 && Math.floor(n % 100 / 10) != 1) ? 'Показан ' : 'Показаны ';
-    s += n + ' ';
-    s += getCorrectWordMembers(n);
-    if (!search)
-        return s;
-    s += ' (';
-    s += (n % 10 == 1 && Math.floor(n % 100 / 10) != 1) ? 'содержащий ' : 'содержащих ';
-    s += `в нике ${search})`;
-    return s;
-}
+import { GetSearchText, SearchFor } from "../../utils/search";
 
 export default function MembersPage(): ReactElement {
     const [members, setMembers] = useState([]);
@@ -42,18 +19,7 @@ export default function MembersPage(): ReactElement {
             setError(false);
         } else setError(true);
     };
-    useEffect(() => getMembers(), [search]);
-
-    const searchMembers = (): Member[] => {
-        if (!search)
-            return members;
-        let r = [];
-        members.forEach((m: {gh: string, [key: string]: string}) => {
-            if (m.gh.toLowerCase().includes(search.toLowerCase()))
-                r.push(m);
-        })
-        return r;
-    };
+    useEffect(() => getMembers(), [members, search]);
 
     return (
         <>
@@ -62,21 +28,16 @@ export default function MembersPage(): ReactElement {
             <section className={styles["list-section"]}>
                 <div className="wrapper">
                     {!error && (
-                        <p className={styles["text"]}>
-                            {getSearchText(searchMembers().length, search)}
-                        </p>
-                    )}
-                    {error && (
-                        <p className={styles["text"]}>
-                            Участники не найдены
-                        </p>
-                    )}
-                    {!error && (
-                        <div className={styles["content"]}>
-                            {searchMembers().map((member, index) => {
-                                return <MemberCard member={member} key={index}/>;
-                            })}
-                        </div>
+                        <>
+                            <p className={styles["text"]}>
+                                {GetSearchText(SearchFor(members, search).length, search, "members")}
+                            </p>
+                            <div className={styles["content"]}>
+                                {SearchFor(members, search).map((member, index) => {
+                                    return <MemberCard member={member} key={index}/>;
+                                })}
+                            </div>
+                        </>
                     )}
                 </div>
             </section>
