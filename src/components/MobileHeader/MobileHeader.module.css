@@ -4,12 +4,11 @@
 	padding: 7px 0;
 	position: absolute;
 	min-height: 50px;
-	z-index: 1;
+	z-index: 999;
 }
 .header-color-open {
 	min-height: 280px;
 }
-
 
 .header-placeholder {
 	height: 60px;
@@ -62,11 +61,7 @@
 	transition: 0.5s ease;
 }
 
-
-
-
 .left-part {
-	display: flex;
 	gap: 30px;
 }
 
@@ -76,39 +71,14 @@
 	align-items: center;
 }
 
-.right-part a {
-	display: flex;
-}
-
 .right-part a svg {
 	fill: #ffffff;
 }
 
-/* гамбургер*/
 .menu-toggle {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	width: 36px;
 	height: 36px;
-	border: 2px solid white;
-	border-radius: 5px;
-	cursor: pointer;
-	flex-direction: column;
-	gap: 5px;
 }
-
-.menu-toggle span {
-	width: 25px;
-	height: 3px;
-	background-color: white;
-	display: block;
-}
-
-
-/**/
-
-
 
 
 @media (hover: hover) {
@@ -116,12 +86,9 @@
 		text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
 		transition: 0.5s ease;
 	}
-	svg.header__nav__element:hover {
+	svg.header__nav__element:hover, .menu-toggle:hover {
 		opacity: 0.8;
 		transition: 0.5s ease;
-	}
-	.menu-toggle:hover {
-		border-color: rgba(255, 255, 255, 0.7);
 	}
 }
 
@@ -130,7 +97,7 @@
 		text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
 		transition: 0.5s ease;
 	}
-	svg.header__nav__element:active {
+	svg.header__nav__element:active, .menu-toggle:active {
 		opacity: 0.8;
 		transition: 0.5s ease;
 	}

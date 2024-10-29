@@ -7,6 +7,8 @@ import Logo, {Color} from "../Logo/Logo";
 import styles from "./MobileHeader.module.css";
 import Route from "../../utils/links";
 
+import cn from "classnames";
+
 const MobileHeader: FunctionComponent = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -21,15 +23,17 @@ const MobileHeader: FunctionComponent = () => {
                 <div className={`${styles["header__title"]} ${menuOpen ? styles["header-color-open"] : ""}`}>
                     <Link to="/"><Logo color={Color.white} classNames={[styles["header__nav__element"]]}/></Link>
                     <div className={styles["menu-toggle"]} onClick={toggleMenu}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <Icons name='mh_toggle' add_base="white" dh={10}/>
                     </div>
                 </div>
 
             </div>
             <div>
-                <ul className={`${styles["header__nav"]} ${menuOpen ? `${styles["open"]} ${styles["header-color-open"]}` : ""}`}>
+                <ul className={cn(
+                        styles["header__nav"],
+                        {
+                            [cn(styles["open"], styles["header-color-open"])]: menuOpen
+                        })}>
                     <li className={styles["header__nav__element"]}>
                         <Link to="/projects" onClick={toggleMenu}>Проекты</Link>
                     </li>
