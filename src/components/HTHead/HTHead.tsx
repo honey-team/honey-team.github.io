@@ -4,6 +4,10 @@ import htconfig from "../../../htconfig.json";
 import Favicon from "react-favicon";
 import {FunctionComponent} from "react";
 
+import styles from "./HTHead.module.css";
+import SVGIcon from "react-svg-favicon";
+import is_light from "../../utils/theme";
+
 export enum Pages {
     index = 'index',
     members = 'members',
@@ -31,17 +35,7 @@ const HTHead: FunctionComponent<HTheadProps> = ({page, gh = null, id = null}) =>
         [Pages.blog]: '/blog',
         [Pages.post]: `/blog/${id}`,
         [Pages.error]: 'undefined'
-    }[page]
-    // let url_array = [
-    //     [Pages.index, '/'],
-    //     [Pages.members, '/members'],
-    //     [Pages.member, `/members/${gh}`],
-    //     [Pages.projects, '/projects'],
-    //     [Pages.project, `/projects/${gh}`],
-    //     [Pages.blog, '/blog'],
-    //     [Pages.post, `/blog/${id}`],
-    //     [Pages.error, 'undefined']
-    // ].find((value) => page === value[0]);
+    }[page];
     if (!url) {
         console.warn('404: HTHead: You used unsupported page: %s\n', page);
         return <></>;
@@ -49,7 +43,7 @@ const HTHead: FunctionComponent<HTheadProps> = ({page, gh = null, id = null}) =>
 
     const page_title = gh ? gh : htconfig.titles[page];
 
-    let favicon = Route(htconfig.favicon.index);
+    let favicon = null;
 
     if (page === Pages.member)
         favicon = `https://avatars.githubusercontent.com/${gh}`;
@@ -58,11 +52,6 @@ const HTHead: FunctionComponent<HTheadProps> = ({page, gh = null, id = null}) =>
         if (project && project.image)
             favicon = Route(project.image);
     }
-    else {
-        favicon = htconfig.favicon[page];
-        favicon = favicon ? Route(favicon) : Route(htconfig.favicon.index);
-    }
-
 
     let description = htconfig.description[page];
     description = description ? Route(description) : Route(htconfig.description.index);
@@ -72,9 +61,13 @@ const HTHead: FunctionComponent<HTheadProps> = ({page, gh = null, id = null}) =>
 
     return (
         <>
-            <Favicon url={favicon}/>
+            {favicon && <Favicon url={favicon}/>}
             <Helmet>
                 <title>{page_title}</title>
+                {!favicon && <link rel="icon" href="/icons/favicon.ico" sizes="any"/>}
+                {!favicon && <link rel="icon"
+                                   href={`/icons/${is_light() ? 'favicon_l' : 'favicon_d'}.svg`}
+                                   type="image/svg+xml"/>}
                 <meta name="description" content={description}/>
                 {url != 'undefined' && (
                     <meta property="og:url" content={url}/>
